@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grégory Sauteret – Recruteur Tech Global</title>
+<meta name="description" content="Recruteur tech global – sourcing international, process d'entretien, secteurs défense, cybersécurité, spatial, industrie 4.0." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --bg:#f9fafb; --text:#0f172a; --muted:#475569;
+    --brand:#1e3a8a; --accent:#fbbf24;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#0b0c10;--text:#e8eaed;--muted:#a6adbb;--brand:#1e40af;--accent:#facc15;}
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:var(--brand);
+    display:flex;align-items:center;justify-content:flex-end;gap:20px;padding:0 24px;box-shadow:0 2px 6px rgba(0,0,0,.1)
+  }
+  nav a{
+    color:#fff;text-decoration:none;font-weight:600;position:relative;overflow:hidden;
+    padding:0 2px;transition:color .3s;
+  }
+  nav a::before{
+    content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;
+    background:linear-gradient(120deg,transparent,rgba(251,191,36,.85),transparent);
+    transition:all .6s ease;
+  }
+  nav a:hover{color:var(--accent)}
+  nav a:hover::before{left:100%}
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--accent);
+    transition:width .3s;
+  }
+  nav a:hover::after{width:100%}
+  nav a[aria-current="page"]{color:var(--accent)}
+  nav a[aria-current="page"]::after{width:100%}
+
+  /* HEADER */
+  header{
+    margin-top:56px;
+    background:var(--brand);
+    color:#fff;
+    padding:30px 20px 20px;
+    text-align:center;
+  }
+  header h1{margin:0;font-size:clamp(26px,4.6vw,36px);}
+  header p{margin:4px 0 0;opacity:.95;}
+
+  main{max-width:980px;margin:0 auto;padding:10px 20px 0;}
+
+  /* CARROUSEL */
+  .wrap{
+    position:relative;
+    min-height:38vh; /* bien plus compact */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    margin-top:0;
+  }
+  .slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    opacity:0;
+    transition:opacity .6s ease;
+    padding:0 24px;
+  }
+  .slide.show{opacity:1}
+  .slide h2{
+    margin:0;
+    color:var(--brand);
+    font-size:clamp(22px,3.4vw,30px);
+  }
+  .slide p{
+    margin:4px 0 4px;
+    max-width:750px;
+  }
+
+  /* BARRE DE PROGRESSION */
+  .progress{
+    width:55%;
+    max-width:450px;
+    height:4px;
+    background:#e5e7eb;
+    border-radius:999px;
+    overflow:hidden;
+    margin-top:4px;
+  }
+  @media (prefers-color-scheme:dark){
+    .progress{background:rgba(255,255,255,.18);}
+  }
+  .bar{height:100%;width:0;background:var(--accent);}
+
+  /* ASTUCE */
+  .hint{
+    color:var(--muted);
+    text-align:center;
+    margin:6px 0 0;
+    font-size:14px;
+  }
+
+  /* BOUTONS */
+  .cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+    margin:12px 0 0; /* rapproché du texte */
+  }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:13px 18px;
+    border-radius:14px;
+    font-weight:700;
+    text-decoration:none;
+    cursor:pointer;
+    border:1px solid transparent;
+    background:var(--brand);
+    color:#fff;
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    transition: transform .14s ease, color .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{
+    transform:scale(1.1);
+    color:var(--accent);
+    box-shadow:0 12px 26px rgba(0,0,0,.14);
+  }
+  .btn:active{
+    transform:scale(0.985);
+    box-shadow:0 6px 16px rgba(0,0,0,.12);
+  }
+
+  footer{text-align:center;color:var(--muted);padding:24px 0;}
+</style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" aria-current="page">Accueil</a>
+    <a href="cvinteractif.html">Mon CV</a>
+    <a href="references.html">Références</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+
+  <header>
+    <h1>Grégory Sauteret</h1>
+    <p>Senior Talent Acquisition Specialist</p>
+  </header>
+
+  <main>
+    <section id="carousel" class="wrap" aria-roledescription="carousel" aria-live="polite">
+      <article class="slide show">
+        <h2>Mon parcours</h2>
+        <p>De la formation au recrutement tech international, j’ai développé une approche structurée et humaine, combinant expertise métier et curiosité culturelle.</p>
+        <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
+        <p class="hint">Astuce : clic/tap pour avancer • balayez (←/→)</p>
+      </article>
+
+      <article class="slide">
+        <h2>Ma vision</h2>
+        <p>Recruter, c’est comprendre un besoin business, évaluer avec rigueur et construire une relation durable entre talents et entreprises.</p>
+        <div class="progress" aria-hidden="true"><div class="bar"></div></div>
+        <p class="hint">Astuce : clic/tap pour avancer • balayez (←/→)</p>
+      </article>
+
+      <article class="slide">
+        <h2>Et demain</h2>
+        <p>Contribuer à des projets à fort impact dans la défense, la cybersécurité, le spatial et l’industrie 4.0 — avec exigence et passion.</p>
+        <div class="progress" aria-hidden="true"><div class="bar"></div></div>
+        <p class="hint">Astuce : clic/tap pour avancer • balayez (←/→)</p>
+      </article>
+    </section>
+
+    <div class="cta">
+      <a class="btn" href="cvinteractif.html">Voir mon CV interactif</a>
+      <a class="btn" href="references.html">Lire mes références</a>
+      <a class="btn" href="contact.html">Me contacter</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Grégory Sauteret</footer>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    let i = 0, t = null;
+    const bars = document.querySelectorAll('.bar');
+    function show(n){
+      i=(n+slides.length)%slides.length;
+      slides.forEach((el,k)=>el.classList.toggle('show',k===i));
+    }
+    function start(ms=6000){
+      bars.forEach(bar=>{
+        bar.style.transition='none';
+        bar.style.width='0%';
+        void bar.offsetWidth;
+        bar.style.transition=`width ${ms}ms linear`;
+        bar.style.width='100%';
+      });
+    }
+    function play(ms=6000){
+      clearTimeout(t);
+      start(ms);
+      t=setTimeout(()=>{ show(i+1); play(); },ms);
+    }
+    document.getElementById('carousel').addEventListener('click',()=>{ show(i+1); play(); });
+    show(0); play(6000);
+  </script>
+
+  <!-- Vibration haptique -->
+  <script>
+    (function(){
+      if(!("vibrate" in navigator)) return;
+      const buttons = document.querySelectorAll(".btn");
+      const buzzHover = () => navigator.vibrate(18);
+      const buzzClick = () => navigator.vibrate(10);
+      buttons.forEach(btn=>{
+        btn.addEventListener("mouseenter",buzzHover,{passive:true});
+        btn.addEventListener("click",buzzClick,{passive:true});
+      });
+    })();
+  </script>
+</body>
+</html>

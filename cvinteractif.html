@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CV interactif — Grégory Sauteret</title>
+<meta name="description" content="CV interactif de Grégory Sauteret — Senior Talent Acquisition Specialist." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{ --bg:#f9fafb; --text:#0f172a; --muted:#475569; --brand:#1e3a8a; --accent:#fbbf24; }
+  @media (prefers-color-scheme:dark){ :root{--bg:#0b0c10;--text:#e8eaed;--muted:#a6adbb;--brand:#1e40af;--accent:#facc15;} }
+
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+  /* NAV + brillance dorée */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:var(--brand);
+    display:flex;align-items:center;justify-content:flex-end;gap:20px;padding:0 24px;box-shadow:0 2px 6px rgba(0,0,0,.1)
+  }
+  nav a{color:#fff;text-decoration:none;font-weight:600;position:relative;overflow:hidden;padding:0 2px;transition:color .3s}
+  nav a::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(251,191,36,.85),transparent);transition:all .6s ease}
+  nav a:hover{color:var(--accent)} nav a:hover::before{left:100%}
+  nav a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--accent);transition:width .3s}
+  nav a:hover::after{width:100%}
+  nav a[aria-current="page"]{color:var(--accent)}
+  nav a[aria-current="page"]::after{width:100%}
+
+  header{margin-top:56px;background:var(--brand);color:#fff;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+  header h1{margin:0 0 6px;font-size:clamp(26px,4.6vw,36px)}
+  header p{margin:0;opacity:.95}
+
+  main{max-width:980px;margin:0 auto;padding:20px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:10px}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  @media (prefers-color-scheme:dark){ .card{background:#121319;border-color:rgba(255,255,255,.12);box-shadow:0 10px 28px rgba(0,0,0,.45)} }
+
+  h2{margin:0 0 8px;color:var(--brand)}
+  ul{margin:0;padding-left:18px} li{margin:6px 0}
+  .tag{display:inline-block;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.35);color:#8a6d00;padding:2px 8px;border-radius:999px;font-size:12px;margin:3px 6px 0 0}
+  @media (prefers-color-scheme:dark){ .tag{color:#facc15;border-color:rgba(250,204,21,.55)} }
+
+  footer{text-align:center;color:var(--muted);padding:24px}
+</style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="cvinteractif.html" aria-current="page">Mon CV</a>
+    <a href="references.html">Références</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+
+  <header>
+    <h1>CV interactif</h1>
+    <p>Parcours, expertises et réalisations</p>
+  </header>
+
+  <main>
+    <div class="grid">
+      <section class="card">
+        <h2>Expérience clé</h2>
+        <ul>
+          <li>Recrutements tech (développeurs, SRE, sécurité) en environnements exigeants.</li>
+          <li>Structuration de process d’entretien et outillage (scorecards, ATS, feedback loops).</li>
+          <li>Campagnes de sourcing international (EMEA/APAC).</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>Compétences</h2>
+        <div>
+          <span class="tag">Sourcing avancé</span><span class="tag">Process & ATS</span>
+          <span class="tag">Tech screening</span><span class="tag">Stakeholder mgmt</span>
+          <span class="tag">Cyber / Défense</span><span class="tag">Spatial / Indus 4.0</span>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Méthodologie</h2>
+        <ul>
+          <li>Discovery hiring managers → profilage précis.</li>
+          <li>Outreach personnalisé & séquences.</li>
+          <li>Entretiens structurés → décisions éclairées.</li>
+          <li>Suivi candidats & onboarding.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>Réalisations</h2>
+        <ul>
+          <li>Division sécurité montée de 0 à 20+ hires en 8 mois.</li>
+          <li>Time-to-hire réduit de 35% via process revamp.</li>
+          <li>Playbooks & kits d’entretien managers.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>© 2025 Grégory Sauteret</footer>
+</body>
+</html>

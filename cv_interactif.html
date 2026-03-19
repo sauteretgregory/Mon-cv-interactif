@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grégory Sauteret - Mon CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    nav {
+      background: #2c3e50;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    .job-title {
+      cursor: pointer;
+      background: #e3eaf3;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    .job-details {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-top: 5px;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div><strong>Grégory Sauteret</strong></div>
+    <div>
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="cv.html">CV</a>
+      <a href="mailto:contact@gsauteret.fr">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Mon parcours professionnel</h1>
+    <p>Recruteur IT avec expertise globale et engagement humain</p>
+  </header>
+
+  <section>
+    <h2>Expériences professionnelles</h2>
+
+    <div class="job-title" onclick="toggleDetails(0)">📌 Consultant Recrutement IT Global – Anywr (2022 - Aujourd’hui)</div>
+    <div class="job-details">Définition de stratégies IT globales, acquisition de profils tech spécialisés, coaching personnalisé et coordination internationale.</div>
+
+    <div class="job-title" onclick="toggleDetails(1)">📌 Chargé de Recrutement – HIRE SAS (2019 - 2022)</div>
+    <div class="job-details">Recrutement IT cadres, sourcing multicanal, entretiens structurés, suivi RH.</div>
+
+    <div class="job-title" onclick="toggleDetails(2)">📌 Chargé de Recrutement – ABIL RESSOURCES (2018 - 2019)</div>
+    <div class="job-details">Recrutement multisectoriel, booléen, job boards, cycle complet.</div>
+
+    <div class="job-title" onclick="toggleDetails(3)">📌 Chargé de Recrutement – Solutions 30 (2017)</div>
+    <div class="job-details">Annonces, sourcing, préqualification, coaching candidat.</div>
+
+    <div class="job-title" onclick="toggleDetails(4)">📌 Assistant Recrutement – Synergie (2016 - 2017)</div>
+    <div class="job-details">Préqualification téléphonique, suivi administratif, base candidats.</div>
+
+    <div class="job-title" onclick="toggleDetails(5)">📌 Conseiller d’Éducation – Lycée Recouvrance (2012 - 2016)</div>
+    <div class="job-details">Accompagnement éducatif, organisation événements, suivi pédagogique.</div>
+
+    <div class="job-title" onclick="toggleDetails(6)">📌 Auxiliaire scolaire – Lycée Recouvrance (2010 - 2012)</div>
+    <div class="job-details">Assistance pédagogique, soutien opérationnel.</div>
+
+    <div class="job-title" onclick="toggleDetails(7)">🌏 Working Holiday Visa – Australie (2007 - 2009)</div>
+    <div class="job-details">Expériences terrain, logistique, vente, mer, culture internationale.</div>
+
+    <div class="job-title" onclick="toggleDetails(8)">📌 Conseiller en Formation – Groupe Alternance (2005 - 2007)</div>
+    <div class="job-details">Prospection, placement alternants, innovation sourcing SMS.</div>
+
+    <div class="job-title" onclick="toggleDetails(9)">📌 Commercial – ART’RENOV (2004 - 2005)</div>
+    <div class="job-details">Vente directe, prospection, négociation commerciale.</div>
+
+    <h2>Formation</h2>
+    <ul>
+      <li><strong>IFAE</strong> – Titre pro Recrutement (2016–2017)</li>
+      <li><strong>LODIMA</strong> – BTS NRC (2005–2007)</li>
+      <li><strong>Desclaude</strong> – BTS GME (2002–2004)</li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2025 Grégory Sauteret · Tous droits réservés
+  </footer>
+
+  <script>
+    function toggleDetails(index) {
+      const details = document.querySelectorAll('.job-details');
+      details[index].style.display = details[index].style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>

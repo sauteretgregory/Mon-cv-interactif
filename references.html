@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Références — Grégory Sauteret</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{ --bg:#f9fafb; --text:#0f172a; --muted:#475569; --brand:#1e3a8a; --accent:#fbbf24; }
+  @media (prefers-color-scheme:dark){ :root{--bg:#0b0c10;--text:#e8eaed;--muted:#a6adbb;--brand:#1e40af;--accent:#facc15;} }
+
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+  /* NAV + brillance dorée */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:var(--brand);
+    display:flex;align-items:center;justify-content:flex-end;gap:20px;padding:0 24px;box-shadow:0 2px 6px rgba(0,0,0,.1)
+  }
+  nav a{color:#fff;text-decoration:none;font-weight:600;position:relative;overflow:hidden;padding:0 2px;transition:color .3s}
+  nav a::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(251,191,36,.85),transparent);transition:all .6s ease}
+  nav a:hover{color:var(--accent)} nav a:hover::before{left:100%}
+  nav a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--accent);transition:width .3s}
+  nav a:hover::after{width:100%}
+  nav a[aria-current="page"]{color:var(--accent)}
+  nav a[aria-current="page"]::after{width:100%}
+
+  header{margin-top:56px;background:var(--brand);color:#fff;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+  header h1{margin:0 0 6px;font-size:clamp(26px,4.6vw,36px)}
+  header p{margin:0;opacity:.95}
+
+  main{max-width:900px;margin:40px auto 0;padding:0 20px}
+
+  .wrap{position:relative;min-height:260px}
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;opacity:0;transition:opacity .5s ease}
+  .slide.show{opacity:1}
+  .quote{font-size:clamp(18px,3.2vw,22px);font-weight:500;margin:0 0 12px;padding:0 8px}
+  .who{font-weight:700}
+  .role{color:var(--muted);font-size:14px;margin-top:4px}
+
+  .progress{height:3px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin:10px 20px 0}
+  @media (prefers-color-scheme:dark){.progress{background:rgba(255,255,255,.15)}}
+  .bar{height:100%;width:0;background:var(--accent)}
+  .hint{color:var(--muted);text-align:center;margin:16px 0 26px;font-size:14px}
+
+  footer{text-align:center;color:var(--muted);padding:28px}
+</style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="cvinteractif.html">Mon CV</a>
+    <a href="references.html" aria-current="page">Références</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+
+  <header>
+    <h1>Références professionnelles</h1>
+    <p>Une sélection de retours reçus en mission</p>
+  </header>
+
+  <main>
+    <section class="wrap" id="carousel" aria-roledescription="carousel" aria-live="polite">
+      <figure class="slide show">
+        <blockquote class="quote">« Grégory est ..... »</blockquote>
+        <figcaption>
+          <div class="who">Pierre Hebenquis</div>
+          <div class="role">poste/relation professionnelle — chez Entreprise</div>
+        </figcaption>
+      </figure>
+      <figure class="slide">
+        <blockquote class="quote">« [Colle ici la citation exacte de la 2ᵉ référence] »</blockquote>
+        <figcaption><div class="who">[Nom 2]</div><div class="role">[Poste / Relation] — [Entreprise]</div></figcaption>
+      </figure>
+      <figure class="slide">
+        <blockquote class="quote">« [Colle ici la citation exacte de la 3ᵉ référence] »</blockquote>
+        <figcaption><div class="who">[Nom 3]</div><div class="role">[Poste / Relation] — [Entreprise]</div></figcaption>
+      </figure>
+    </section>
+
+    <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
+    <p class="hint">Astuce : clic/tap pour avancer • balayez (←/→) • flèches du clavier • espace = pause/lecture</p>
+  </main>
+
+  <footer>© 2025 Grégory Sauteret</footer>
+
+  <script>
+    const slides=[...document.querySelectorAll('.slide')], wrap=document.getElementById('carousel'), bar=document.getElementById('progressBar');
+    const AUTO=6000; let i=0,t=null,paused=false;
+    function show(n){i=(n+slides.length)%slides.length;slides.forEach((el,k)=>el.classList.toggle('show',k===i));}
+    function start(ms=AUTO){bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition=`width ${ms}ms linear`;bar.style.width='100%';}
+    function play(ms=AUTO){if(paused)return;clearTimeout(t);start(ms);t=setTimeout(()=>next(),ms);}
+    function stop(){clearTimeout(t);const w=getComputedStyle(bar).width;bar.style.transition='none';bar.style.width=w;}
+    function next(){show(i+1);play();} function prev(){show(i-1);play();}
+    wrap.addEventListener('click',next);
+    let x0=null; wrap.addEventListener('touchstart',e=>{x0=e.changedTouches[0].clientX;},{passive:true});
+    wrap.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>30){(dx<0?next:prev)();}},{passive:true});
+    document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft',' '].includes(e.key)||e.code==='Space')e.preventDefault();if(e.key==='ArrowRight')next();else if(e.key==='ArrowLeft')prev();else if(e.code==='Space'||e.key===' '){paused=!paused;paused?stop():play();}});
+    wrap.addEventListener('mouseenter',stop); wrap.addEventListener('mouseleave',()=>{if(!paused)play();});
+    document.addEventListener('visibilitychange',()=>{document.hidden?stop():(!paused&&play());});
+    show(0); play(AUTO);
+  </script>
+</body>
+</html>
