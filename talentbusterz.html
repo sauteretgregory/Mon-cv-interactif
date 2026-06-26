@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TalentBusterZ: CV augmenté | Grégory Sauteret</title>
+<meta name="description" content="TalentBusterZ, prototype personnel de CV augmenté : matching offre / parcours, preuves disponibles, compétences transférables et écarts éventuels." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#f9fafb; --text:#0f172a; --muted:#475569;
+    --brand:#1e3a8a; --brand2:#1e40af; --accent:#fbbf24;
+    --card:#fff; --line:#e5e7eb; --ok:#065f46; --warn:#92400e; --bad:#991b1b;
+    --soft:#eef2ff;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#0b0c10;--text:#e8eaed;--muted:#a6adbb;--brand:#1e40af;--brand2:#2563eb;--accent:#facc15;--card:#121319;--line:rgba(255,255,255,.12);--soft:#111827;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:var(--brand);display:flex;align-items:center;justify-content:flex-end;gap:20px;padding:0 24px;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+  nav a{color:#fff;text-decoration:none;font-weight:600;position:relative;overflow:hidden;padding:0 2px;transition:color .3s;white-space:nowrap}
+  nav a::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(251,191,36,.85),transparent);transition:all .6s ease}
+  nav a:hover{color:var(--accent)} nav a:hover::before{left:100%}
+  nav a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--accent);transition:width .3s}
+  nav a:hover::after{width:100%} nav a[aria-current="page"]{color:var(--accent)} nav a[aria-current="page"]::after{width:100%}
+  header{margin-top:56px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:46px 20px 34px;text-align:center;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;inset:auto -10% -70% -10%;height:180px;background:radial-gradient(circle at 50% 0,rgba(251,191,36,.22),transparent 62%)}
+  header h1{margin:0 0 8px;font-size:clamp(30px,5.6vw,52px);line-height:1.05;font-weight:800;letter-spacing:-.03em}
+  header p{margin:0 auto;opacity:.96;max-width:850px;font-size:clamp(15px,2.2vw,19px)}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);padding:7px 12px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:14px;color:#fff}
+  main{max-width:1120px;margin:0 auto;padding:22px 20px 42px}
+  .section{margin:22px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .grid-2{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+  @media(max-width:820px){.grid-2{grid-template-columns:1fr} nav{gap:12px;padding:0 12px;font-size:14px;overflow-x:auto;justify-content:flex-start}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,.05)}
+  @media (prefers-color-scheme:dark){.card{box-shadow:0 12px 28px rgba(0,0,0,.35)}}
+  h2{margin:0 0 10px;color:var(--brand);font-size:clamp(22px,3vw,28px);line-height:1.2}
+  h3{margin:0 0 8px;font-size:18px;line-height:1.25}
+  p{margin:8px 0}.muted{color:var(--muted)}
+  .lead{font-size:18px;color:var(--text)}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:14px;font-weight:800;text-decoration:none;cursor:pointer;border:1px solid transparent;background:var(--brand);color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.08);transition:transform .14s ease,color .18s ease,box-shadow .18s ease,background .18s ease}
+  .btn:hover{transform:scale(1.04);color:var(--accent);box-shadow:0 12px 26px rgba(0,0,0,.14)}
+  .btn.ghost{background:transparent;color:var(--brand);border-color:var(--brand);box-shadow:none}.btn.ghost:hover{background:rgba(30,58,138,.07)}
+  @media (prefers-color-scheme:dark){.btn.ghost{color:#e8eaed;border-color:#e8eaed}.btn.ghost:hover{background:rgba(255,255,255,.07)}}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.tag{display:inline-flex;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.35);color:#7c5f00;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:700}.tag.blue{background:rgba(30,58,138,.08);border-color:rgba(30,58,138,.18);color:var(--brand)}
+  @media (prefers-color-scheme:dark){.tag{color:#facc15;border-color:rgba(250,204,21,.55)}.tag.blue{color:#bfdbfe;border-color:rgba(147,197,253,.35);background:rgba(59,130,246,.12)}}
+  .pillbar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.pill{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:9px 12px;font-weight:800;cursor:pointer}.pill.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .hero-split{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:stretch}.hero-split .card{height:100%}@media(max-width:860px){.hero-split{grid-template-columns:1fr}}
+  .score{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center}.donut{width:112px;height:112px;border-radius:50%;background:conic-gradient(var(--accent) 0 82%, rgba(148,163,184,.25) 82% 100%);display:grid;place-items:center}.donut span{width:78px;height:78px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-weight:800;color:var(--brand);font-size:24px}
+  .barline{height:9px;background:rgba(148,163,184,.25);border-radius:999px;overflow:hidden;margin:7px 0 13px}.barline>i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--accent));border-radius:999px}
+  details{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:0;margin:12px 0;overflow:hidden}summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:800;color:var(--brand);display:flex;justify-content:space-between;gap:14px}summary::-webkit-details-marker{display:none}summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent)}details[open] summary::after{content:"–"}.detail-content{padding:0 18px 18px;border-top:1px solid var(--line)}
+  ul{margin:8px 0;padding-left:20px}li{margin:6px 0}.timeline{position:relative}.xp{border-left:4px solid var(--accent);padding-left:16px;margin:14px 0}.xp small{color:var(--muted);font-weight:700}.xp strong{display:block;font-size:17px}.note{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:14px 16px;color:var(--muted)}
+  .demo-box{border:1px dashed rgba(30,58,138,.35);background:linear-gradient(180deg,rgba(30,58,138,.05),transparent);border-radius:18px;padding:18px}textarea{width:100%;min-height:140px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);padding:12px 14px;font:inherit;resize:vertical}.result{display:none;margin-top:14px}.result.show{display:block}.small{font-size:13px;color:var(--muted)}
+  footer{text-align:center;color:var(--muted);padding:26px 20px}
+</style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="talentbusterz.html" aria-current="page">TalentBusterZ: CV augmenté</a>
+    <a href="references.html">Références</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+
+  <header>
+    <div class="badge">Prototype personnel · CV augmenté · matching offre/parcours</div>
+    <h1>TalentBusterZ</h1>
+    <p>Découvrez mon concept de CV augmenté qui adapte la lecture de mon parcours à votre offre, sans inventer, sans masquer les écarts, et en distinguant preuves fortes, compétences transférables et zones à clarifier.</p>
+    <div class="cta">
+      <a class="btn" href="#demo">Voir une démonstration statique</a>
+      <a class="btn ghost" href="#cv">Lire le CV socle</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero-split">
+      <article class="card">
+        <h2>Pourquoi TalentBusterZ ?</h2>
+        <p class="lead">TalentBusterZ est né de mes expériences en recrutement, en accompagnement candidat et de mon observation des outils de matching entre offres et profils.</p>
+        <p>Chez HIRE, j’ai découvert une première logique de matching candidat / offre avec scoring. L’idée était déjà intéressante : objectiver l’adéquation entre un besoin recruteur et un parcours candidat. Mais à l’époque, l’usage n’a pas réellement pris et le marché avançait très vite sur ces sujets.</p>
+        <p>Avec le recul, cette expérience a nourri ma réflexion : un CV seul ne suffit pas toujours à expliquer pourquoi un profil peut correspondre à une offre. Certaines compétences sont pertinentes mais peu visibles, certaines expériences sont transférables mais doivent être explicitées, et certains écarts doivent être assumés plutôt que masqués.</p>
+        <p>Aujourd’hui, TalentBusterZ me sert d’abord de prototype personnel. Il m’aide à analyser les offres qui correspondent le mieux à mon parcours, à mes envies et à mon projet professionnel, puis à pré-générer des CV ciblés : suffisamment adaptés pour parler à l’entreprise, mais sans jamais inventer ni mentir sur mon expérience.</p>
+        <p>L’objectif n’est pas de produire un CV artificiel. L’objectif est de mieux choisir ce qu’il faut mettre en avant, de ne pas en dire trop, de ne pas en dire trop peu, et d’adapter la forme comme le fond au contexte de l’entreprise visée. À terme, cela pourrait aussi inclure une personnalisation visuelle du CV en reprenant certains codes de l’entreprise : couleurs, typographie ou hiérarchie graphique, tout en gardant une règle simple : la forme peut s’adapter, mais le parcours reste vrai.</p>
+        <p>À plus long terme, j’aimerais faire évoluer TalentBusterZ vers un outil gratuit, sécurisé et utile aux candidats comme aux recruteurs. Les candidats pourraient mieux adapter leur CV à chaque offre. Les recruteurs pourraient obtenir une lecture plus claire du profil : preuves fortes, compétences transférables, écarts à clarifier et questions utiles à poser en entretien.</p>
+        <p>Je reste cependant prudent. Un tel outil implique des points de vigilance importants : protection des données, fiabilité des informations, sécurité des textes transmis, risques d’interprétation excessive par l’IA et nécessité de garder l’humain au centre de la décision.</p>
+        <p>La première version publique est donc volontairement limitée. Elle présente le concept, la méthode et les garde-fous.</p>
+        <p><strong>La règle centrale reste simple : adapter sans mentir.</strong></p>
+        <div class="tags">
+          <span class="tag">Matching offre / parcours</span>
+          <span class="tag">Données sourcées</span>
+          <span class="tag">Preuves traçables</span>
+          <span class="tag">Écarts explicites</span>
+          <span class="tag">CV ciblé sans invention</span>
+          <span class="tag">Prototype prudent</span>
+        </div></article>
+      <aside class="card">
+        <h2>État du prototype</h2>
+        <div class="score">
+          <div class="donut"><span>V1</span></div>
+          <div>
+            <strong>Phase 1 : vitrine statique</strong>
+            <p class="muted">Cette page ne transmet aucune donnée et n’appelle aucun service IA. Elle présente le concept, une simulation de résultat et les garde-fous avant toute mise en ligne d’un module connecté. Le domaine talentbusterz.com est réservé pour préparer, à terme, une version autonome du projet.</p>
+          </div>
+        </div>
+        <div class="note">Le futur module IA devra être appelé uniquement depuis un backend sécurisé. Aucune clé API ne sera exposée dans le HTML, et les textes transmis devront être limités, filtrés et traités comme des données non fiables.</div>
+      </aside>
+    </section>
+
+    <section class="section card" id="demo">
+      <h2>Démonstration locale</h2>
+      <p class="muted">Cette V1.1 ne transmet toujours aucune donnée et n’appelle aucun service IA. Le texte reste dans votre navigateur : un petit moteur local repère quelques familles de mots-clés pour produire une simulation plus cohérente qu’un résultat figé.</p>
+      <div class="demo-box">
+        <label for="offer"><strong>Collez une offre ici</strong></label>
+        <textarea id="offer" placeholder="Exemples : chargé d’insertion professionnelle, recruteur IT, consultant talent acquisition, commercial, marchand de légumes..."></textarea>
+        <div class="cta" style="justify-content:flex-start">
+          <button class="btn" id="showDemo" type="button">Analyser localement</button>
+          <button class="btn ghost" id="sampleGood" type="button">Exemple pertinent</button>
+          <button class="btn ghost" id="sampleLow" type="button">Exemple hors cible</button>
+          <button class="btn ghost" id="clearDemo" type="button">Réinitialiser</button>
+        </div>
+        <div class="result" id="result" aria-live="polite">
+          <div class="grid-2">
+            <article class="card">
+              <h3>Diagnostic de match indicatif</h3>
+              <p><strong>Match estimé :</strong> <span id="matchLabel">—</span></p>
+              <div class="barline"><i id="matchBar" style="width:0%"></i></div>
+              <ul>
+                <li><strong>Preuves fortes :</strong> <span id="strongEvidence">—</span></li>
+                <li><strong>Preuves transférables :</strong> <span id="transferEvidence">—</span></li>
+                <li><strong>Zones à clarifier :</strong> <span id="gapsEvidence">—</span></li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Extrait de CV ciblé simulé</h3>
+              <p><strong>Titre proposé :</strong> <span id="cvTitle">—</span></p>
+              <p><strong>Synthèse ciblée :</strong> <span id="cvSummary">—</span></p>
+              <p class="small" id="demoNote">Simulation locale sans IA. La future V2 générera ce bloc depuis un backend sécurisé, à partir de l’offre fournie et d’une base de faits vérifiée.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card" id="cv">
+      <h2>CV socle lisible immédiatement</h2>
+      <p class="muted">Même sans utiliser le module de matching, le lecteur peut consulter les éléments clés du parcours.</p>
+      <div class="pillbar" role="tablist" aria-label="Angles de lecture">
+        <button class="pill active" data-filter="all" type="button">Tout</button>
+        <button class="pill" data-filter="recrutement" type="button">Recrutement IT</button>
+        <button class="pill" data-filter="accompagnement" type="button">Accompagnement</button>
+        <button class="pill" data-filter="pedagogie" type="button">Pédagogie</button>
+        <button class="pill" data-filter="digital" type="button">Digital & IA</button>
+        <button class="pill" data-filter="international" type="button">International</button>
+      </div>
+
+      <div class="timeline" id="timeline">
+        <details open data-tags="recrutement accompagnement digital international">
+          <summary>Anywr — Consultant en Recrutement IT Global <span class="muted">2022–2025</span></summary>
+          <div class="detail-content">
+            <p>Sourcing stratégique et recrutement de profils IT spécialisés en contexte international : Java, Python, Angular, React, Salesforce, COBOL. Accompagnement candidats, préparation aux entretiens, reporting et adaptation aux enjeux de mobilité internationale.</p>
+            <div class="tags"><span class="tag blue">Recrutement IT</span><span class="tag blue">Accompagnement</span><span class="tag blue">International</span><span class="tag blue">Digital</span></div>
+          </div>
+        </details>
+        <details data-tags="recrutement accompagnement digital">
+          <summary>HIRE SAS — Chargé de recrutement <span class="muted">2019–2022</span></summary>
+          <div class="detail-content">
+            <p>Recrutement de profils IT cadres et managers, rédaction d’annonces, sourcing multicanal, LinkedIn Recruiter, entretiens structurés, évaluation technique et comportementale, suivi managers.</p>
+            <div class="tags"><span class="tag blue">Recrutement IT</span><span class="tag blue">Entretiens structurés</span><span class="tag blue">Relation décideurs</span></div>
+          </div>
+        </details>
+        <details data-tags="recrutement accompagnement">
+          <summary>ABIL Ressources — Chargé de recrutement <span class="muted">2018–2019</span></summary>
+          <div class="detail-content">
+            <p>Recrutement multisectoriel, relation client, diffusion d’offres, conduite d’entretiens et feedback candidat.</p>
+          </div>
+        </details>
+        <details data-tags="recrutement accompagnement digital">
+          <summary>Solutions30 — Chargé de recrutement <span class="muted">2017</span></summary>
+          <div class="detail-content">
+            <p>Sourcing, préqualification, entretiens et coaching candidats pour des profils support et techniques.</p>
+          </div>
+        </details>
+        <details data-tags="recrutement digital">
+          <summary>Synergie — Assistant chargé de recrutement <span class="muted">2016–2017</span></summary>
+          <div class="detail-content">
+            <p>Support opérationnel au recrutement, préqualification téléphonique, gestion de base candidats et organisation des entretiens.</p>
+          </div>
+        </details>
+        <details data-tags="accompagnement pedagogie">
+          <summary>Gestionnaire talents — Indépendant <span class="muted">2012–2016</span></summary>
+          <div class="detail-content">
+            <p>Accompagnement global d’un jeune artiste : développement de carrière, image, stratégie artistique, prospection et coordination d’un projet studio.</p>
+          </div>
+        </details>
+        <details data-tags="accompagnement pedagogie">
+          <summary>OGEC Jeanne d’Arc — Auxiliaire scolaire <span class="muted">2010–2012</span></summary>
+          <div class="detail-content">
+            <p>Accompagnement pédagogique d’un élève dyslexique, adaptation, médiation en classe et suivi de réorientation.</p>
+          </div>
+        </details>
+        <details data-tags="international accompagnement">
+          <summary>Australie — Pause professionnelle / WHV <span class="muted">2007–2009</span></summary>
+          <div class="detail-content">
+            <p>Expériences professionnelles variées en environnement anglophone : vente, travaux saisonniers, usine, pêche en mer. Renforcement de l’adaptabilité, de l’anglais et de la résilience.</p>
+          </div>
+        </details>
+        <details data-tags="pedagogie recrutement digital accompagnement">
+          <summary>Alternance Sèvre et Vienne — Conseiller en formation <span class="muted">2005–2007</span></summary>
+          <div class="detail-content">
+            <p>Prospection, vente de solutions de formation en alternance, conduite d’entretiens individuels et collectifs, participation salons, création d’une base candidats Excel et publipostage SMS.</p>
+          </div>
+        </details>
+        <details data-tags="accompagnement">
+          <summary>ART’RENOV — Commercial <span class="muted">2004–2005</span></summary>
+          <div class="detail-content">
+            <p>Prospection, vente terrain, négociation, relation client et développement commercial.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section grid">
+      <article class="card">
+        <h2>Compétences clés</h2>
+        <div class="tags">
+          <span class="tag">Sourcing</span><span class="tag">Recherche booléenne</span><span class="tag">Entretiens structurés</span><span class="tag">Coaching candidats</span><span class="tag">Reporting</span><span class="tag">Relation parties prenantes</span><span class="tag">Anglais professionnel</span><span class="tag">Bullhorn</span><span class="tag">JIRA</span><span class="tag">CodingGame</span><span class="tag">AssessFirst</span><span class="tag">Power BI</span>
+        </div>
+      </article>
+      <article class="card">
+        <h2>Règle anti-surpromesse</h2>
+        <p>TalentBusterZ ne doit pas produire un CV fictif. Le système peut reformuler, sélectionner et prioriser, mais il doit signaler les écarts lorsqu’une preuve est absente ou seulement transférable.</p>
+      </article>
+      <article class="card">
+        <h2>Prochaine étape</h2>
+        <p>Construire la V2 avec un backend local sécurisé, une base de faits CV en JSON, puis un appel IA contrôlé par les règles TBZ_MATCH_ENGINE et TBZ_CV_ENGINE.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>© 2026 Grégory Sauteret — TalentBusterZ est un prototype personnel en cours de développement.</footer>
+
+<script>
+  const offer = document.getElementById('offer');
+  const result = document.getElementById('result');
+  const matchLabel = document.getElementById('matchLabel');
+  const matchBar = document.getElementById('matchBar');
+  const strongEvidence = document.getElementById('strongEvidence');
+  const transferEvidence = document.getElementById('transferEvidence');
+  const gapsEvidence = document.getElementById('gapsEvidence');
+  const cvTitle = document.getElementById('cvTitle');
+  const cvSummary = document.getElementById('cvSummary');
+
+  const samples = {
+    good: "Chargé d'insertion professionnelle : accompagnement individuel, ateliers CV, préparation aux entretiens, relation entreprises, JobTeaser, anglais courant, profils ingénieurs et docteurs.",
+    low: "Marchand de légumes : réception des marchandises, mise en rayon, conseil client, gestion des stocks, respect des règles d'hygiène, vente de fruits et légumes."
+  };
+
+  const dimensions = [
+    {
+      id:'recrutement', weight:26,
+      keys:['recrutement','recruteur','talent acquisition','sourcing','chasse','entretien','entretiens','candidat','candidats','ats','linkedin','jobteaser','rh'],
+      strong:'recrutement IT, sourcing multicanal, entretiens structurés, reporting et relation avec décideurs',
+      transfer:'lecture des besoins, qualification de profils, synthèse claire pour les parties prenantes'
+    },
+    {
+      id:'accompagnement', weight:24,
+      keys:['accompagnement','insertion','conseil','coaching','cv','lettre','orientation','projet professionnel','préparation','carrière','atelier','ateliers','simulation'],
+      strong:'coaching candidats, préparation aux entretiens, reformulation de parcours et accompagnement individuel',
+      transfer:'capacité à aider une personne à clarifier son positionnement et à valoriser ses preuves'
+    },
+    {
+      id:'tech', weight:22,
+      keys:['it','tech','digital','ingénieur','ingenieur','développeur','developpeur','java','python','cloud','data','cyber','salesforce','cobol','angular','react','doctorant','scientifique'],
+      strong:'recrutement de profils techniques : Java, Python, Angular, React, Salesforce, COBOL et environnements IT internationaux',
+      transfer:'compréhension des profils techniques et capacité à rendre leurs compétences lisibles pour un recruteur ou un manager'
+    },
+    {
+      id:'pedagogie', weight:16,
+      keys:['formation','former','pédagogie','pedagogie','transmission','alternance','étudiant','etudiant','élève','eleve','atelier','ateliers','école','ecole'],
+      strong:'expérience formation, alternance, accompagnement scolaire et transmission de méthodes',
+      transfer:'capacité à transformer des pratiques de recrutement en supports compréhensibles et actionnables'
+    },
+    {
+      id:'international', weight:12,
+      keys:['anglais','international','multiculturel','europe','canada','afrique','vietnam','mobilité','mobilite','global','remote'],
+      strong:'recrutement international, anglais professionnel et adaptation à des environnements multiculturels',
+      transfer:'aisance à accompagner des profils et interlocuteurs aux parcours variés'
+    },
+    {
+      id:'commercial', weight:8,
+      keys:['commercial','vente','client','clients','prospection','négociation','negociation','portefeuille','relation client'],
+      strong:'expérience commerciale, prospection, relation client et négociation',
+      transfer:'orientation service, écoute du besoin et capacité à créer une relation de confiance'
+    }
+  ];
+
+  const offTarget = ['légumes','legumes','fruit','fruits','rayon','mise en rayon','hygiène','hygiene','caisse','stock','stocks','boucher','boulanger','serveur','cuisine','manutention','livraison'];
+
+  function includesAny(text, arr){ return arr.some(k => text.includes(k)); }
+  function analyze(){
+    const raw = offer.value.trim();
+    const text = raw.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    if(!raw){ offer.value = samples.good; return analyze(); }
+
+    let score = 18;
+    const matched = [];
+    dimensions.forEach(d=>{
+      const hit = d.keys.some(k => text.includes(k.normalize('NFD').replace(/[\u0300-\u036f]/g,'')));
+      if(hit){ score += d.weight; matched.push(d); }
+    });
+    if(includesAny(text, offTarget)) score -= 22;
+    score = Math.max(8, Math.min(96, score));
+
+    let level = 'faible';
+    if(score >= 78) level = 'fort à très fort';
+    else if(score >= 62) level = 'bon';
+    else if(score >= 45) level = 'partiel / transférable';
+    else level = 'faible ou hors cible';
+
+    const strong = matched.filter(d=>['recrutement','accompagnement','tech','pedagogie','international'].includes(d.id)).map(d=>d.strong);
+    const transfer = matched.map(d=>d.transfer);
+
+    let gaps = [];
+    if(!matched.some(d=>d.id==='recrutement')) gaps.push('expérience directe du besoin métier à vérifier');
+    if(!matched.some(d=>d.id==='accompagnement')) gaps.push('dimension accompagnement ou conseil à clarifier');
+    if(!matched.some(d=>d.id==='tech')) gaps.push('proximité avec les profils techniques ou scientifiques à préciser');
+    if(score < 45) gaps.push('poste possiblement éloigné du cœur de parcours recrutement / accompagnement / outils');
+    if(includesAny(text, offTarget)) gaps.push('expérience opérationnelle spécifique au secteur demandé non démontrée dans le parcours');
+
+    let title = 'Consultant recrutement IT & accompagnement de talents';
+    let summary = 'Expérience du recrutement de profils techniques en contextes internationaux, avec une forte dimension d’accompagnement candidat : préparation aux entretiens, lecture d’offres, valorisation du parcours et conseil sur le positionnement professionnel.';
+
+    if(score < 45){
+      title = 'Profil recrutement, accompagnement et relation client — adéquation à vérifier';
+      summary = 'Le parcours apporte surtout des compétences transférables : relation client, écoute du besoin, accompagnement, communication et adaptation. En revanche, l’expérience directe du métier ou du secteur décrit dans l’offre n’est pas démontrée et devrait être clarifiée avant toute candidature.';
+    } else if(matched.some(d=>d.id==='accompagnement') && matched.some(d=>d.id==='pedagogie')){
+      title = 'Recrutement, accompagnement carrière & pédagogie';
+      summary = 'Parcours centré sur le recrutement, l’accompagnement de candidats et la transmission : préparation aux entretiens, structuration de parcours, ateliers possibles, lecture d’offres et valorisation de compétences auprès d’interlocuteurs variés.';
+    } else if(matched.some(d=>d.id==='tech')){
+      title = 'Consultant recrutement IT / profils techniques';
+      summary = 'Expérience confirmée en sourcing, qualification et accompagnement de profils IT et techniques, avec une capacité à traduire les attentes d’un poste en critères observables et à restituer les éléments clés aux décideurs.';
+    } else if(matched.some(d=>d.id==='commercial')){
+      title = 'Recrutement, relation client & développement commercial';
+      summary = 'Parcours combinant recrutement, relation client, prospection et accompagnement, avec une approche orientée écoute du besoin, qualification, conseil et suivi.';
+    }
+
+    matchLabel.textContent = level + ' (' + score + '%)';
+    matchBar.style.width = score + '%';
+    strongEvidence.textContent = strong.length ? strong.join(' ; ') + '.' : 'aucune preuve forte directement détectée dans cette simulation locale.';
+    transferEvidence.textContent = transfer.length ? transfer.join(' ; ') + '.' : 'relation client, communication et adaptabilité restent les principaux leviers transférables.';
+    gapsEvidence.textContent = gaps.join(' ; ') + '.';
+    cvTitle.textContent = title;
+    cvSummary.textContent = summary;
+    result.classList.add('show');
+    result.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+
+  document.getElementById('showDemo').addEventListener('click', analyze);
+  document.getElementById('sampleGood').addEventListener('click', ()=>{ offer.value=samples.good; analyze(); });
+  document.getElementById('sampleLow').addEventListener('click', ()=>{ offer.value=samples.low; analyze(); });
+  document.getElementById('clearDemo').addEventListener('click', ()=>{ offer.value=''; result.classList.remove('show'); matchBar.style.width='0%'; });
+
+  const pills = [...document.querySelectorAll('.pill')];
+  const items = [...document.querySelectorAll('#timeline details')];
+  function applyFilter(f){
+    items.forEach(d=>{
+      const tags = (d.dataset.tags||'').split(' ');
+      const show = f === 'all' || tags.includes(f);
+      d.style.display = show ? '' : 'none';
+      if(show && f !== 'all') d.open = true;
+      if(f === 'all') d.open = d === items[0];
+    });
+  }
+  pills.forEach(p=>p.addEventListener('click',()=>{pills.forEach(x=>x.classList.remove('active'));p.classList.add('active');applyFilter(p.dataset.filter); }));
+
+  (function(){
+    if(!('vibrate' in navigator)) return;
+    document.querySelectorAll('.btn,.pill').forEach(b=>{
+      b.addEventListener('click',()=>navigator.vibrate(10),{passive:true});
+    });
+  })();
+</script>
+</body>
+</html>

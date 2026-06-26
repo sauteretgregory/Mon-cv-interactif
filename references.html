@@ -4,20 +4,17 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Références — Grégory Sauteret</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<meta name="description" content="Références professionnelles de Grégory Sauteret — extraits anonymisés de recommandations LinkedIn." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 
 <style>
-  :root{ --bg:#f9fafb; --text:#0f172a; --muted:#475569; --brand:#1e3a8a; --accent:#fbbf24; }
-  @media (prefers-color-scheme:dark){ :root{--bg:#0b0c10;--text:#e8eaed;--muted:#a6adbb;--brand:#1e40af;--accent:#facc15;} }
+  :root{ --bg:#f9fafb; --text:#0f172a; --muted:#475569; --brand:#1e3a8a; --accent:#fbbf24; --card:#ffffff; --line:#e5e7eb; --soft:#eef2ff; --shadow:rgba(0,0,0,.08); }
+  @media (prefers-color-scheme:dark){ :root{--bg:#0b0c10;--text:#e8eaed;--muted:#a6adbb;--brand:#1e40af;--accent:#facc15;--card:#121319;--line:rgba(255,255,255,.12);--soft:#111827;--shadow:rgba(0,0,0,.45);} }
 
   *{box-sizing:border-box}
   body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
 
-  /* NAV + brillance dorée */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:var(--brand);
-    display:flex;align-items:center;justify-content:flex-end;gap:20px;padding:0 24px;box-shadow:0 2px 6px rgba(0,0,0,.1)
-  }
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:var(--brand);display:flex;align-items:center;justify-content:flex-end;gap:20px;padding:0 24px;box-shadow:0 2px 6px rgba(0,0,0,.1)}
   nav a{color:#fff;text-decoration:none;font-weight:600;position:relative;overflow:hidden;padding:0 2px;transition:color .3s}
   nav a::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(251,191,36,.85),transparent);transition:all .6s ease}
   nav a:hover{color:var(--accent)} nav a:hover::before{left:100%}
@@ -26,32 +23,81 @@
   nav a[aria-current="page"]{color:var(--accent)}
   nav a[aria-current="page"]::after{width:100%}
 
-  header{margin-top:56px;background:var(--brand);color:#fff;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
-  header h1{margin:0 0 6px;font-size:clamp(26px,4.6vw,36px)}
-  header p{margin:0;opacity:.95}
+  header{margin-top:56px;background:var(--brand);color:#fff;min-height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 20px}
+  header h1{margin:0 0 8px;font-size:clamp(28px,5vw,42px)}
+  header p{margin:0;opacity:.95;max-width:780px}
 
-  main{max-width:900px;margin:40px auto 0;padding:0 20px}
+  main{max-width:1040px;margin:0 auto;padding:28px 20px 0}
 
-  .wrap{position:relative;min-height:260px}
-  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;opacity:0;transition:opacity .5s ease}
-  .slide.show{opacity:1}
-  .quote{font-size:clamp(18px,3.2vw,22px);font-weight:500;margin:0 0 12px;padding:0 8px}
-  .who{font-weight:700}
-  .role{color:var(--muted);font-size:14px;margin-top:4px}
+  .intro{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 8px 20px var(--shadow);margin-bottom:18px}
+  .intro h2{margin:0 0 8px;color:var(--brand);font-size:22px}
+  .intro p{margin:8px 0;color:var(--muted)}
 
-  .progress{height:3px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin:10px 20px 0}
+  .carousel-shell{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 12px 34px var(--shadow);overflow:hidden;margin-top:20px}
+  .carousel-top{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(251,191,36,.10),transparent)}
+  .counter{font-weight:800;color:var(--brand)}
+  .hint{color:var(--muted);font-size:14px;text-align:right}
+
+  .stage{position:relative;min-height:360px;touch-action:pan-y;display:flex;align-items:stretch;overflow:hidden}
+  .slide{position:absolute;inset:0;display:grid;place-items:center;padding:34px 54px;opacity:0;transform:translateX(28px) scale(.985);transition:opacity .35s ease, transform .35s ease;pointer-events:none}
+  .slide.active{opacity:1;transform:translateX(0) scale(1);pointer-events:auto}
+  .slide-inner{max-width:820px;text-align:center}
+  .quote{font-size:clamp(20px,3.2vw,28px);font-weight:600;line-height:1.45;margin:0;color:var(--text)}
+  .quote::before{content:"“";color:var(--accent);font-size:52px;line-height:0;vertical-align:-18px;margin-right:6px;font-weight:800}
+  .quote::after{content:"”";color:var(--accent);font-size:42px;line-height:0;vertical-align:-14px;margin-left:4px;font-weight:800}
+  .tags{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin:24px 0 18px}
+  .tag{font-size:12px;border:1px solid rgba(251,191,36,.45);background:rgba(251,191,36,.12);color:#7c5d00;padding:3px 8px;border-radius:999px;font-weight:800}
+  @media (prefers-color-scheme:dark){.tag{color:#facc15;background:rgba(250,204,21,.08)}}
+  .meta{border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:14px}
+  .name{font-weight:800;color:var(--text);font-size:18px}
+  .role{margin-top:2px}
+  .context{margin-top:6px;font-size:13px;color:var(--muted)}
+
+  .progress{height:4px;background:#e5e7eb;overflow:hidden}
   @media (prefers-color-scheme:dark){.progress{background:rgba(255,255,255,.15)}}
   .bar{height:100%;width:0;background:var(--accent)}
-  .hint{color:var(--muted);text-align:center;margin:16px 0 26px;font-size:14px}
 
+  .controls{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:14px 16px;border-top:1px solid var(--line)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border-radius:14px;font-weight:800;text-decoration:none;cursor:pointer;border:1px solid transparent;background:var(--brand);color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.08);transition:transform .14s ease,color .18s ease,box-shadow .18s ease}
+  .btn:hover{transform:scale(1.04);color:var(--accent);box-shadow:0 12px 26px rgba(0,0,0,.14)}
+  .btn.ghost{background:transparent;color:var(--brand);border-color:var(--brand)}
+  @media (prefers-color-scheme:dark){.btn.ghost{color:#e8eaed;border-color:#e8eaed}}
+  .dots{display:flex;gap:8px;align-items:center;justify-content:center;margin:0 6px}
+  .dot{width:10px;height:10px;border-radius:999px;border:0;background:#cbd5e1;cursor:pointer;transition:transform .15s ease,background .15s ease}
+  .dot.active{background:var(--accent);transform:scale(1.35)}
+  @media (prefers-color-scheme:dark){.dot{background:#334155}}
+
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 10px;justify-content:center}
+  .filter{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:9px 13px;font-weight:800;cursor:pointer;transition:transform .15s ease,border-color .15s ease,background .15s ease}
+  .filter:hover{transform:translateY(-1px);border-color:var(--accent)}
+  .filter.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+  .note{margin:22px 0 0;background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:16px;color:var(--muted);font-size:14px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 8px;justify-content:center}
   footer{text-align:center;color:var(--muted);padding:28px}
+
+  @media (max-width:760px){
+    nav{justify-content:center;gap:12px;padding:0 10px;font-size:13px}
+    header{min-height:190px}
+    main{padding:20px 14px 0}
+    .carousel-top{flex-direction:column;align-items:flex-start}
+    .hint{text-align:left}
+    .stage{min-height:470px}
+    .slide{padding:28px 22px}
+    .controls .btn{padding:10px 12px}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .slide{transition:none}
+    .bar{transition:none!important}
+  }
 </style>
 </head>
 
 <body>
   <nav>
     <a href="index.html">Accueil</a>
-    <a href="cvinteractif.html">Mon CV</a>
+    <a href="talentbusterz.html">TalentBusterZ: CV augmenté</a>
     <a href="references.html" aria-current="page">Références</a>
     <a href="contact.html">Contact</a>
     <a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn</a>
@@ -59,49 +105,208 @@
 
   <header>
     <h1>Références professionnelles</h1>
-    <p>Une sélection de retours reçus en mission</p>
+    <p>Extraits anonymisés de recommandations publiques LinkedIn, présentés sous forme de diaporama pour une lecture fluide.</p>
   </header>
 
   <main>
-    <section class="wrap" id="carousel" aria-roledescription="carousel" aria-live="polite">
-      <figure class="slide show">
-        <blockquote class="quote">« Grégory est ..... »</blockquote>
-        <figcaption>
-          <div class="who">Pierre Hebenquis</div>
-          <div class="role">poste/relation professionnelle — chez Entreprise</div>
-        </figcaption>
-      </figure>
-      <figure class="slide">
-        <blockquote class="quote">« [Colle ici la citation exacte de la 2ᵉ référence] »</blockquote>
-        <figcaption><div class="who">[Nom 2]</div><div class="role">[Poste / Relation] — [Entreprise]</div></figcaption>
-      </figure>
-      <figure class="slide">
-        <blockquote class="quote">« [Colle ici la citation exacte de la 3ᵉ référence] »</blockquote>
-        <figcaption><div class="who">[Nom 3]</div><div class="role">[Poste / Relation] — [Entreprise]</div></figcaption>
-      </figure>
+    <section class="intro">
+      <h2>Une lecture prudente et respectueuse</h2>
+      <p>Les recommandations ci-dessous proviennent de retours publiés sur LinkedIn. Par souci de sobriété et de respect des données personnelles, les identités sont abrégées et certains éléments ont été légèrement condensés, sans modifier le sens des messages.</p>
+      <p>Le diaporama adapte automatiquement le temps d’affichage à la longueur du texte. Il peut être parcouru au clavier, à la souris ou au swipe sur mobile.</p>
     </section>
 
-    <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
-    <p class="hint">Astuce : clic/tap pour avancer • balayez (←/→) • flèches du clavier • espace = pause/lecture</p>
+    <div class="filters" aria-label="Filtrer les références par thème">
+      <button class="filter active" data-filter="all">Tout afficher</button>
+      <button class="filter" data-filter="recrutement">Recrutement</button>
+      <button class="filter" data-filter="accompagnement">Accompagnement</button>
+      <button class="filter" data-filter="ethique">Éthique</button>
+      <button class="filter" data-filter="digital">Digital / marché</button>
+      <button class="filter" data-filter="collectif">Collectif</button>
+    </div>
+
+    <section class="carousel-shell" aria-label="Diaporama des références professionnelles">
+      <div class="carousel-top">
+        <div class="counter" id="counter">Référence 1 / 5</div>
+        <div class="hint">Espace ou tap : pause/lecture • ← / → : naviguer • swipe sur mobile</div>
+      </div>
+      <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+
+      <div class="stage" id="stage" tabindex="0" aria-live="polite">
+        <article class="slide active" data-tags="recrutement ethique accompagnement">
+          <div class="slide-inner">
+            <p class="quote">J’ai pu apprécier le sérieux et la rigueur de Grégory. Son anglais fluent est un réel avantage pour toute structure recherchant des profils cadres orientés international. On apprécie aussi son écoute et son éthique.</p>
+            <div class="tags"><span class="tag">Rigueur</span><span class="tag">Anglais</span><span class="tag">Éthique</span></div>
+            <div class="meta"><div class="name">Pierre H.</div><div class="role">Associé — division Commercial & Marketing, cabinet international</div><div class="context">Collaboration en équipe — recommandation LinkedIn, mars 2019</div></div>
+          </div>
+        </article>
+
+        <article class="slide" data-tags="recrutement accompagnement ethique">
+          <div class="slide-inner">
+            <p class="quote">Durant ma période de recrutement, Grégory s’est pleinement investi dans les missions confiées. Consciencieux, disponible et réactif, il a fait preuve de professionnalisme, d’initiative et de détermination.</p>
+            <div class="tags"><span class="tag">Disponibilité</span><span class="tag">Réactivité</span><span class="tag">Professionnalisme</span></div>
+            <div class="meta"><div class="name">S. A.</div><div class="role">Profil finance / comptabilité — client candidat</div><div class="context">Accompagnement recrutement — recommandation LinkedIn, juillet 2019</div></div>
+          </div>
+        </article>
+
+        <article class="slide" data-tags="digital recrutement accompagnement">
+          <div class="slide-inner">
+            <p class="quote">Nous avons longuement échangé sur les technologies en vogue et la stratégie des entreprises. Grégory est capable de comprendre nos métiers, de les challenger et de s’adapter à un univers professionnel exigeant.</p>
+            <div class="tags"><span class="tag">Marché IT</span><span class="tag">Analyse</span><span class="tag">Adaptation</span></div>
+            <div class="meta"><div class="name">Bruno A. H.</div><div class="role">Chef de projet IT senior — AMOA, transformation SI, CRM & data</div><div class="context">Échanges marché / métiers IT — recommandation LinkedIn</div></div>
+          </div>
+        </article>
+
+        <article class="slide" data-tags="collectif digital ethique">
+          <div class="slide-inner">
+            <p class="quote">Grégory est bien plus qu’un collaborateur : il cherche constamment à améliorer l’organisation, comprend les besoins de l’entreprise et trouve des solutions pour automatiser ou optimiser les tâches. C’est aussi un excellent équipier.</p>
+            <div class="tags"><span class="tag">Amélioration continue</span><span class="tag">Automatisation</span><span class="tag">Esprit d’équipe</span></div>
+            <div class="meta"><div class="name">Christian D.</div><div class="role">Directeur commercial</div><div class="context">Collaboration professionnelle — recommandation LinkedIn</div></div>
+          </div>
+        </article>
+
+        <article class="slide" data-tags="collectif accompagnement ethique">
+          <div class="slide-inner">
+            <p class="quote">Ce fut un réel plaisir de travailler avec Grégory. Son dévouement, son énergie et son professionnalisme ressortent clairement, avec une dimension humaine généreuse et inspirante.</p>
+            <div class="tags"><span class="tag">Énergie</span><span class="tag">Professionnalisme</span><span class="tag">Dimension humaine</span></div>
+            <div class="meta"><div class="name">Sabah B.</div><div class="role">Account Manager</div><div class="context">Collaboration professionnelle — recommandation LinkedIn</div></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="controls">
+        <button class="btn ghost" id="prev" type="button">← Précédent</button>
+        <div class="dots" id="dots" aria-label="Navigation du diaporama"></div>
+        <button class="btn" id="toggle" type="button">Pause</button>
+        <button class="btn ghost" id="next" type="button">Suivant →</button>
+      </div>
+    </section>
+
+    <div class="note">
+      Ces extraits sont présentés dans une logique de transparence professionnelle. Ils ne remplacent pas un échange direct ni une prise de référence formelle lorsque celle-ci est nécessaire dans un processus de recrutement.
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">Voir mon LinkedIn</a>
+      <a class="btn ghost" href="contact.html">Me contacter</a>
+    </div>
   </main>
 
-  <footer>© 2025 Grégory Sauteret</footer>
+  <footer>© 2026 Grégory Sauteret</footer>
 
   <script>
-    const slides=[...document.querySelectorAll('.slide')], wrap=document.getElementById('carousel'), bar=document.getElementById('progressBar');
-    const AUTO=6000; let i=0,t=null,paused=false;
-    function show(n){i=(n+slides.length)%slides.length;slides.forEach((el,k)=>el.classList.toggle('show',k===i));}
-    function start(ms=AUTO){bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition=`width ${ms}ms linear`;bar.style.width='100%';}
-    function play(ms=AUTO){if(paused)return;clearTimeout(t);start(ms);t=setTimeout(()=>next(),ms);}
-    function stop(){clearTimeout(t);const w=getComputedStyle(bar).width;bar.style.transition='none';bar.style.width=w;}
-    function next(){show(i+1);play();} function prev(){show(i-1);play();}
-    wrap.addEventListener('click',next);
-    let x0=null; wrap.addEventListener('touchstart',e=>{x0=e.changedTouches[0].clientX;},{passive:true});
-    wrap.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>30){(dx<0?next:prev)();}},{passive:true});
-    document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft',' '].includes(e.key)||e.code==='Space')e.preventDefault();if(e.key==='ArrowRight')next();else if(e.key==='ArrowLeft')prev();else if(e.code==='Space'||e.key===' '){paused=!paused;paused?stop():play();}});
-    wrap.addEventListener('mouseenter',stop); wrap.addEventListener('mouseleave',()=>{if(!paused)play();});
-    document.addEventListener('visibilitychange',()=>{document.hidden?stop():(!paused&&play());});
-    show(0); play(AUTO);
+    const allSlides = [...document.querySelectorAll('.slide')];
+    const stage = document.getElementById('stage');
+    const bar = document.getElementById('bar');
+    const counter = document.getElementById('counter');
+    const dotsBox = document.getElementById('dots');
+    const toggleBtn = document.getElementById('toggle');
+    const filters = [...document.querySelectorAll('.filter')];
+    let activeSlides = [...allSlides];
+    let index = 0;
+    let timer = null;
+    let paused = false;
+    let touchStartX = 0, touchStartY = 0, touchMoved = false;
+
+    function readingTime(slide){
+      const words = (slide.innerText || '').trim().split(/\s+/).filter(Boolean).length;
+      const ms = Math.round((words / 185) * 60000) + 1800;
+      return Math.min(16000, Math.max(6500, ms));
+    }
+
+    function updateDots(){
+      dotsBox.innerHTML = '';
+      activeSlides.forEach((_, k)=>{
+        const b = document.createElement('button');
+        b.className = 'dot' + (k===index ? ' active' : '');
+        b.type = 'button';
+        b.setAttribute('aria-label', `Aller à la référence ${k+1}`);
+        b.addEventListener('click', (e)=>{ e.stopPropagation(); show(k); play(); });
+        dotsBox.appendChild(b);
+      });
+    }
+
+    function show(n){
+      if(activeSlides.length === 0) return;
+      index = (n + activeSlides.length) % activeSlides.length;
+      allSlides.forEach(slide=>slide.classList.remove('active'));
+      activeSlides[index].classList.add('active');
+      counter.textContent = `Référence ${index + 1} / ${activeSlides.length}`;
+      updateDots();
+      stage.focus({preventScroll:true});
+    }
+
+    function animateBar(ms){
+      bar.style.transition = 'none';
+      bar.style.width = '0%';
+      void bar.offsetWidth;
+      if(!paused){
+        bar.style.transition = `width ${ms}ms linear`;
+        bar.style.width = '100%';
+      }
+    }
+
+    function play(){
+      clearTimeout(timer);
+      toggleBtn.textContent = paused ? 'Lecture' : 'Pause';
+      if(paused || activeSlides.length <= 1){
+        if(activeSlides.length <= 1) bar.style.width = '0%';
+        return;
+      }
+      const ms = readingTime(activeSlides[index]);
+      animateBar(ms);
+      timer = setTimeout(()=>{ show(index + 1); play(); }, ms);
+    }
+
+    function next(){ show(index + 1); play(); }
+    function prev(){ show(index - 1); play(); }
+    function togglePause(){ paused = !paused; play(); }
+
+    document.getElementById('next').addEventListener('click', (e)=>{ e.stopPropagation(); next(); });
+    document.getElementById('prev').addEventListener('click', (e)=>{ e.stopPropagation(); prev(); });
+    toggleBtn.addEventListener('click', (e)=>{ e.stopPropagation(); togglePause(); });
+
+    stage.addEventListener('click', ()=>{ if(!touchMoved) togglePause(); touchMoved = false; });
+    stage.addEventListener('touchstart', e=>{
+      touchMoved = false;
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+    }, {passive:true});
+    stage.addEventListener('touchmove', e=>{
+      const dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
+      const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+      if(dx > 12 || dy > 12) touchMoved = true;
+    }, {passive:true});
+    stage.addEventListener('touchend', e=>{
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if(Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)){
+        dx < 0 ? next() : prev();
+      }
+    }, {passive:true});
+
+    document.addEventListener('keydown', e=>{
+      if(e.key === 'ArrowRight'){ e.preventDefault(); next(); }
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); prev(); }
+      if(e.code === 'Space' || e.key === ' '){ e.preventDefault(); togglePause(); }
+    });
+
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.hidden){ clearTimeout(timer); }
+      else play();
+    });
+
+    filters.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const filter = btn.dataset.filter;
+        filters.forEach(b=>b.classList.toggle('active', b===btn));
+        activeSlides = allSlides.filter(slide => filter === 'all' || slide.dataset.tags.split(' ').includes(filter));
+        index = 0;
+        show(0);
+        play();
+      });
+    });
+
+    show(0); play();
   </script>
 </body>
 </html>
