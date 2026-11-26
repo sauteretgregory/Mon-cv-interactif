@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>TalentBusterZ: CV augmenté | Grégory Sauteret</title>
-<meta name="description" content="TalentBusterZ, prototype personnel de CV augmenté : matching offre / parcours, preuves disponibles, compétences transférables et écarts éventuels." />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<meta content="TalentBusterZ, prototype personnel de CV augmenté : matching offre / parcours, preuves disponibles, compétences transférables et écarts éventuels." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
 <style>
   :root{
     --bg:#f9fafb; --text:#0f172a; --muted:#475569;
@@ -58,188 +59,180 @@
 
 @media(max-width:400px){.score{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.card{min-width:0}.pillbar{gap:6px}main{padding:14px 12px}}
 </style>
-<link rel="stylesheet" href="site.css">
+<link href="site.css" rel="stylesheet"/>
 </head>
 <body>
-  <nav class="site-nav" aria-label="Navigation principale"><a class="identity" href="index.html">GS<span>.</span> <span class="identity-name">Grégory Sauteret</span></a><div class="nav-links"><a href="index.html">Accueil</a><a href="references.html">Références</a><a href="talentbusterz.html" aria-current="page">Innovation</a><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn ↗</a></div></nav>
-
-  <header>
-    <div class="badge">Prototype personnel · CV augmenté · matching offre/parcours</div>
-    <h1>TalentBusterZ</h1>
-    <p>Découvrez mon concept de CV augmenté qui adapte la lecture de mon parcours à votre offre, sans inventer, sans masquer les écarts, et en distinguant preuves fortes, compétences transférables et zones à clarifier.</p>
-    <div class="cta">
-      <a class="btn" href="#demo">Voir une démonstration statique</a>
-      <a class="btn ghost" href="#cv">Lire le CV socle</a>
-    </div>
-  </header>
-
-  <main>
-    <section class="section hero-split">
-      <article class="card">
-        <h2>Pourquoi TalentBusterZ ?</h2>
-        <p class="lead">TalentBusterZ est né de mes expériences en recrutement, en accompagnement candidat et de mon observation des outils de matching entre offres et profils.</p>
-        <p>Chez HIRE, j’ai découvert une première logique de matching candidat / offre avec scoring. L’idée était déjà intéressante : objectiver l’adéquation entre un besoin recruteur et un parcours candidat. Mais à l’époque, l’usage n’a pas réellement pris et le marché avançait très vite sur ces sujets.</p>
-        <p>Avec le recul, cette expérience a nourri ma réflexion : un CV seul ne suffit pas toujours à expliquer pourquoi un profil peut correspondre à une offre. Certaines compétences sont pertinentes mais peu visibles, certaines expériences sont transférables mais doivent être explicitées, et certains écarts doivent être assumés plutôt que masqués.</p>
-        <p>Aujourd’hui, TalentBusterZ me sert d’abord de prototype personnel. Il m’aide à analyser les offres qui correspondent le mieux à mon parcours, à mes envies et à mon projet professionnel, puis à pré-générer des CV ciblés : suffisamment adaptés pour parler à l’entreprise, mais sans jamais inventer ni mentir sur mon expérience.</p>
-        <p>L’objectif n’est pas de produire un CV artificiel. L’objectif est de mieux choisir ce qu’il faut mettre en avant, de ne pas en dire trop, de ne pas en dire trop peu, et d’adapter la forme comme le fond au contexte de l’entreprise visée. À terme, cela pourrait aussi inclure une personnalisation visuelle du CV en reprenant certains codes de l’entreprise : couleurs, typographie ou hiérarchie graphique, tout en gardant une règle simple : la forme peut s’adapter, mais le parcours reste vrai.</p>
-        <p>À plus long terme, j’aimerais faire évoluer TalentBusterZ vers un outil gratuit, sécurisé et utile aux candidats comme aux recruteurs. Les candidats pourraient mieux adapter leur CV à chaque offre. Les recruteurs pourraient obtenir une lecture plus claire du profil : preuves fortes, compétences transférables, écarts à clarifier et questions utiles à poser en entretien.</p>
-        <p>Je reste cependant prudent. Un tel outil implique des points de vigilance importants : protection des données, fiabilité des informations, sécurité des textes transmis, risques d’interprétation excessive par l’IA et nécessité de garder l’humain au centre de la décision.</p>
-        <p>La première version publique est donc volontairement limitée. Elle présente le concept, la méthode et les garde-fous.</p>
-        <p><strong>La règle centrale reste simple : adapter sans mentir.</strong></p>
-        <div class="tags">
-          <span class="tag">Matching offre / parcours</span>
-          <span class="tag">Données sourcées</span>
-          <span class="tag">Preuves traçables</span>
-          <span class="tag">Écarts explicites</span>
-          <span class="tag">CV ciblé sans invention</span>
-          <span class="tag">Prototype prudent</span>
-        </div></article>
-      <aside class="card">
-        <h2>État du prototype</h2>
-        <div class="score">
-          <div class="donut"><span>V1</span></div>
-          <div>
-            <strong>Phase 1 : vitrine statique</strong>
-            <p class="muted">Cette démonstration ne transmet pas le texte saisi et n’appelle aucun service IA. Elle présente le concept, une simulation de résultat et les garde-fous avant toute mise en ligne d’un module connecté. Le domaine talentbusterz.com est réservé pour préparer, à terme, une version autonome du projet.</p>
-          </div>
-        </div>
-        <div class="note">Le futur module IA devra être appelé uniquement depuis un backend sécurisé. Aucune clé API ne sera exposée dans le HTML, et les textes transmis devront être limités, filtrés et traités comme des données non fiables.</div>
-      </aside>
-    </section>
-
-    <section class="section card" id="demo">
-      <h2>Démonstration locale</h2>
-      <p class="muted">Cette démonstration historique V1.1 ne transmet pas le texte saisi et n’appelle aucun service IA. Le score n’est pas une mesure de probabilité ni un outil de décision de recrutement. Le texte reste dans votre navigateur : un petit moteur local repère quelques familles de mots-clés pour produire une simulation plus cohérente qu’un résultat figé.</p>
-      <div class="demo-box">
-        <label for="offer"><strong>Collez une offre ici</strong></label>
-        <textarea id="offer" placeholder="Exemples : chargé d’insertion professionnelle, recruteur IT, consultant talent acquisition, commercial, marchand de légumes..."></textarea>
-        <div class="cta" style="justify-content:flex-start">
-          <button class="btn" id="showDemo" type="button">Analyser localement</button>
-          <button class="btn ghost" id="sampleGood" type="button">Exemple pertinent</button>
-          <button class="btn ghost" id="sampleLow" type="button">Exemple hors cible</button>
-          <button class="btn ghost" id="clearDemo" type="button">Réinitialiser</button>
-        </div>
-        <div class="result" id="result" aria-live="polite">
-          <div class="grid-2">
-            <article class="card">
-              <h3>Simulation par mots-clés (non validée)</h3>
-              <p><strong>Score illustratif :</strong> <span id="matchLabel">—</span></p>
-              <div class="barline"><i id="matchBar" style="width:0%"></i></div>
-              <ul>
-                <li><strong>Preuves fortes :</strong> <span id="strongEvidence">—</span></li>
-                <li><strong>Preuves transférables :</strong> <span id="transferEvidence">—</span></li>
-                <li><strong>Zones à clarifier :</strong> <span id="gapsEvidence">—</span></li>
-              </ul>
-            </article>
-            <article class="card">
-              <h3>Extrait de CV ciblé simulé</h3>
-              <p><strong>Titre proposé :</strong> <span id="cvTitle">—</span></p>
-              <p><strong>Synthèse ciblée :</strong> <span id="cvSummary">—</span></p>
-              <p class="small" id="demoNote">Simulation locale sans IA. La future V2 générera ce bloc depuis un backend sécurisé, à partir de l’offre fournie et d’une base de faits vérifiée.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section card" id="cv">
-      <h2>CV socle lisible immédiatement</h2>
-      <p class="muted">Même sans utiliser le module de matching, le lecteur peut consulter les éléments clés du parcours.</p>
-      <div class="pillbar" role="tablist" aria-label="Angles de lecture">
-        <button class="pill active" data-filter="all" type="button">Tout</button>
-        <button class="pill" data-filter="recrutement" type="button">Recrutement IT</button>
-        <button class="pill" data-filter="accompagnement" type="button">Accompagnement</button>
-        <button class="pill" data-filter="pedagogie" type="button">Pédagogie</button>
-        <button class="pill" data-filter="digital" type="button">Digital & IA</button>
-        <button class="pill" data-filter="international" type="button">International</button>
-      </div>
-
-      <div class="timeline" id="timeline">
-        <details open data-tags="recrutement accompagnement digital international">
-          <summary>Anywr — Consultant en Recrutement IT Global <span class="muted">2022–2025</span></summary>
-          <div class="detail-content">
-            <p>Sourcing stratégique et recrutement de profils IT spécialisés en contexte international : Java, Python, Angular, React, Salesforce, COBOL. Accompagnement candidats, préparation aux entretiens, reporting et adaptation aux enjeux de mobilité internationale.</p>
-            <div class="tags"><span class="tag blue">Recrutement IT</span><span class="tag blue">Accompagnement</span><span class="tag blue">International</span><span class="tag blue">Digital</span></div>
-          </div>
-        </details>
-        <details data-tags="recrutement accompagnement digital">
-          <summary>HIRE SAS — Chargé de recrutement <span class="muted">2019–2022</span></summary>
-          <div class="detail-content">
-            <p>Recrutement de profils IT cadres et managers, rédaction d’annonces, sourcing multicanal, LinkedIn Recruiter, entretiens structurés, évaluation technique et comportementale, suivi managers.</p>
-            <div class="tags"><span class="tag blue">Recrutement IT</span><span class="tag blue">Entretiens structurés</span><span class="tag blue">Relation décideurs</span></div>
-          </div>
-        </details>
-        <details data-tags="recrutement accompagnement">
-          <summary>ABIL Ressources — Chargé de recrutement <span class="muted">2018–2019</span></summary>
-          <div class="detail-content">
-            <p>Recrutement multisectoriel, relation client, diffusion d’offres, conduite d’entretiens et feedback candidat.</p>
-          </div>
-        </details>
-        <details data-tags="recrutement accompagnement digital">
-          <summary>Solutions30 — Chargé de recrutement <span class="muted">2017</span></summary>
-          <div class="detail-content">
-            <p>Sourcing, préqualification, entretiens et coaching candidats pour des profils support et techniques.</p>
-          </div>
-        </details>
-        <details data-tags="recrutement digital">
-          <summary>Synergie — Assistant chargé de recrutement <span class="muted">2016–2017</span></summary>
-          <div class="detail-content">
-            <p>Support opérationnel au recrutement, préqualification téléphonique, gestion de base candidats et organisation des entretiens.</p>
-          </div>
-        </details>
-        <details data-tags="accompagnement pedagogie">
-          <summary>Gestionnaire talents — Indépendant <span class="muted">2012–2016</span></summary>
-          <div class="detail-content">
-            <p>Accompagnement global d’un jeune artiste : développement de carrière, image, stratégie artistique, prospection et coordination d’un projet studio.</p>
-          </div>
-        </details>
-        <details data-tags="accompagnement pedagogie">
-          <summary>OGEC Jeanne d’Arc — Auxiliaire scolaire <span class="muted">2010–2012</span></summary>
-          <div class="detail-content">
-            <p>Accompagnement pédagogique d’un élève dyslexique, adaptation, médiation en classe et suivi de réorientation.</p>
-          </div>
-        </details>
-        <details data-tags="international accompagnement">
-          <summary>Australie — Pause professionnelle / WHV <span class="muted">2007–2009</span></summary>
-          <div class="detail-content">
-            <p>Expériences professionnelles variées en environnement anglophone : vente, travaux saisonniers, usine, pêche en mer. Renforcement de l’adaptabilité, de l’anglais et de la résilience.</p>
-          </div>
-        </details>
-        <details data-tags="pedagogie recrutement digital accompagnement">
-          <summary>Alternance Sèvre et Vienne — Conseiller en formation <span class="muted">2005–2007</span></summary>
-          <div class="detail-content">
-            <p>Prospection, vente de solutions de formation en alternance, conduite d’entretiens individuels et collectifs, participation salons, création d’une base candidats Excel et publipostage SMS.</p>
-          </div>
-        </details>
-        <details data-tags="accompagnement">
-          <summary>ART’RENOV — Commercial <span class="muted">2004–2005</span></summary>
-          <div class="detail-content">
-            <p>Prospection, vente terrain, négociation, relation client et développement commercial.</p>
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <section class="section grid">
-      <article class="card">
-        <h2>Compétences clés</h2>
-        <div class="tags">
-          <span class="tag">Sourcing</span><span class="tag">Recherche booléenne</span><span class="tag">Entretiens structurés</span><span class="tag">Coaching candidats</span><span class="tag">Reporting</span><span class="tag">Relation parties prenantes</span><span class="tag">Anglais professionnel</span><span class="tag">Bullhorn</span><span class="tag">JIRA</span><span class="tag">CodingGame</span><span class="tag">AssessFirst</span><span class="tag">Power BI</span>
-        </div>
-      </article>
-      <article class="card">
-        <h2>Règle anti-surpromesse</h2>
-        <p>TalentBusterZ ne doit pas produire un CV fictif. Le système peut reformuler, sélectionner et prioriser, mais il doit signaler les écarts lorsqu’une preuve est absente ou seulement transférable.</p>
-      </article>
-      <article class="card">
-        <h2>Prochaine étape</h2>
-        <p>Construire la V2 avec un backend local sécurisé, une base de faits CV en JSON, puis un appel IA contrôlé par les règles TBZ_MATCH_ENGINE et TBZ_CV_ENGINE.</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>© 2026 Grégory Sauteret — TalentBusterZ est un prototype personnel en cours de développement.</footer>
-
+<nav aria-label="Navigation principale" class="site-nav"><a class="identity" href="index.html">GS<span>.</span> <span class="identity-name">Grégory Sauteret</span></a><div class="nav-links"><a href="index.html">Accueil</a><a href="references.html">Références</a><a aria-current="page" href="talentbusterz.html">Innovation</a><a href="contact.html">Contact</a><a href="questionnaire.html">Étude de marché</a><a href="https://www.linkedin.com/in/gsauteret/" rel="noopener" target="_blank">LinkedIn ↗</a></div></nav>
+<header>
+<div class="badge">Prototype personnel · CV augmenté · matching offre/parcours</div>
+<h1>TalentBusterZ</h1>
+<p>Découvrez mon concept de CV augmenté qui adapte la lecture de mon parcours à votre offre, sans inventer, sans masquer les écarts, et en distinguant preuves fortes, compétences transférables et zones à clarifier.</p>
+<div class="cta">
+<a class="btn" href="#demo">Voir une démonstration statique</a>
+<a class="btn ghost" href="#cv">Lire le CV socle</a>
+</div>
+</header>
+<main>
+<section class="section hero-split">
+<article class="card">
+<h2>Pourquoi TalentBusterZ ?</h2>
+<p class="lead">TalentBusterZ est né de mes expériences en recrutement, en accompagnement candidat et de mon observation des outils de matching entre offres et profils.</p>
+<p>Chez HIRE, j’ai découvert une première logique de matching candidat / offre avec scoring. L’idée était déjà intéressante : objectiver l’adéquation entre un besoin recruteur et un parcours candidat. Mais à l’époque, l’usage n’a pas réellement pris et le marché avançait très vite sur ces sujets.</p>
+<p>Avec le recul, cette expérience a nourri ma réflexion : un CV seul ne suffit pas toujours à expliquer pourquoi un profil peut correspondre à une offre. Certaines compétences sont pertinentes mais peu visibles, certaines expériences sont transférables mais doivent être explicitées, et certains écarts doivent être assumés plutôt que masqués.</p>
+<p>Aujourd’hui, TalentBusterZ me sert d’abord de prototype personnel. Il m’aide à analyser les offres qui correspondent le mieux à mon parcours, à mes envies et à mon projet professionnel, puis à pré-générer des CV ciblés : suffisamment adaptés pour parler à l’entreprise, mais sans jamais inventer ni mentir sur mon expérience.</p>
+<p>L’objectif n’est pas de produire un CV artificiel. L’objectif est de mieux choisir ce qu’il faut mettre en avant, de ne pas en dire trop, de ne pas en dire trop peu, et d’adapter la forme comme le fond au contexte de l’entreprise visée. À terme, cela pourrait aussi inclure une personnalisation visuelle du CV en reprenant certains codes de l’entreprise : couleurs, typographie ou hiérarchie graphique, tout en gardant une règle simple : la forme peut s’adapter, mais le parcours reste vrai.</p>
+<p>À plus long terme, j’aimerais faire évoluer TalentBusterZ vers un outil gratuit, sécurisé et utile aux candidats comme aux recruteurs. Les candidats pourraient mieux adapter leur CV à chaque offre. Les recruteurs pourraient obtenir une lecture plus claire du profil : preuves fortes, compétences transférables, écarts à clarifier et questions utiles à poser en entretien.</p>
+<p>Je reste cependant prudent. Un tel outil implique des points de vigilance importants : protection des données, fiabilité des informations, sécurité des textes transmis, risques d’interprétation excessive par l’IA et nécessité de garder l’humain au centre de la décision.</p>
+<p>La première version publique est donc volontairement limitée. Elle présente le concept, la méthode et les garde-fous.</p>
+<p><strong>La règle centrale reste simple : adapter sans mentir.</strong></p>
+<div class="tags">
+<span class="tag">Matching offre / parcours</span>
+<span class="tag">Données sourcées</span>
+<span class="tag">Preuves traçables</span>
+<span class="tag">Écarts explicites</span>
+<span class="tag">CV ciblé sans invention</span>
+<span class="tag">Prototype prudent</span>
+</div></article>
+<aside class="card">
+<h2>État du prototype</h2>
+<div class="score">
+<div class="donut"><span>V1</span></div>
+<div>
+<strong>Phase 1 : vitrine statique</strong>
+<p class="muted">Cette démonstration ne transmet pas le texte saisi et n’appelle aucun service IA. Elle présente le concept, une simulation de résultat et les garde-fous avant toute mise en ligne d’un module connecté. Le domaine talentbusterz.com est réservé pour préparer, à terme, une version autonome du projet.</p>
+</div>
+</div>
+<div class="note">Le futur module IA devra être appelé uniquement depuis un backend sécurisé. Aucune clé API ne sera exposée dans le HTML, et les textes transmis devront être limités, filtrés et traités comme des données non fiables.</div>
+</aside>
+</section>
+<section class="section card" id="founders"><p class="v3-kicker">TALENTBUSTERZ · PROJET TECHNOLOGIQUE</p><h2>Deux offres. Un socle logiciel commun.</h2><p>TalentBusterZ explore des outils d’aide au recrutement explicables : analyse des compétences, matching, cartographie et aide à la décision humaine. Ces deux offres sont des objectifs de développement, distincts de mon activité de conseil, et ne sont pas encore commercialisées.</p><div class="v4-offers"><article class="v4-product"><p class="v3-kicker">OFFRE 01 · ACCÈS DISTANT</p><h3>TBZ Cloud</h3><p class="v4-promise">Accédez à mes outils sans investir dans votre propre infrastructure.</p><ul><li>Accès par abonnement à une infrastructure mutualisée, avec comptes et espaces clients cloisonnés.</li><li>Modèles d’IA et outils de recrutement disponibles selon les fonctionnalités validées.</li><li>Vivier de compétences : accès envisagé à des données effectivement anonymisées ou à des statistiques agrégées ; toute mise en relation identifiable nécessitera un cadre distinct et licite.</li><li>Quotas d’utilisation et, pour les partenaires Premium, créneaux de calcul réservés selon la capacité mesurée.</li><li>Mises à jour, sécurité et maintenance de la plateforme.</li></ul><p><strong>Modèle envisagé :</strong> abonnement, crédits de calcul supplémentaires et options.</p><p><a class="v3-cta" href="questionnaire.html#innovation">Exprimer mon intérêt pour TBZ Cloud</a></p></article><article class="v4-product"><p class="v3-kicker">OFFRE 02 · INFRASTRUCTURE DÉDIÉE</p><h3>TBZ Private</h3><p class="v4-promise">Déployez votre environnement d’intelligence artificielle au sein de votre entreprise.</p><ul><li>Audit de vos besoins et dimensionnement d’un serveur dédié, acheté par votre entreprise ou loué via un partenaire à étudier.</li><li>Installation locale, configuration et paramétrage des modèles et outils dont les licences permettent le déploiement.</li><li>Adaptation aux métiers, workflows et outils RH ; intégrations ATS/SIRH selon faisabilité.</li><li>Branding, identité visuelle, espace personnalisé et option marque blanche.</li><li>Formation, documentation, support, maintenance, mises à jour logicielles et de sécurité selon contrat.</li><li>Exécution locale et maîtrise des accès lorsque techniquement possible ; sauvegardes, dépendances externes et exigences de sécurité à valider avec votre DSI.</li></ul><p><strong>Modèle envisagé :</strong> frais d’installation et d’intégration, licence récurrente, maintenance et prestations sur mesure ; matériel distinct.</p><p><a class="v3-cta" href="questionnaire.html#innovation">Étudier un déploiement dédié</a></p></article></div><h3>Confidentialité et maîtrise des données</h3><p>La séparation des espaces clients, la licéité des sources, les droits de réutilisation, la protection des données et les licences des modèles devront être vérifiés avant la mise en production. Une suppression des noms ne suffit pas à anonymiser un CV. Un hébergement local ne constitue pas à lui seul une garantie de souveraineté. Le RGPD, les exigences de cybersécurité et les règles applicables aux outils d’IA de recrutement feront partie de l’évaluation.</p><div class="v4-crowd" id="crowdfunding"><p class="v3-kicker">FOUNDERS CLUB · FINANCEMENT PARTICIPATIF ENVISAGÉ</p><h2>Participez à la construction de TalentBusterZ</h2><p>Une future campagne de crowdfunding avec contreparties ou de préventes pourrait contribuer au financement de la station de développement, des tests, du logiciel et de sa sécurisation.</p><div class="v4-offers"><article class="v3-card"><h3>Cloud Founders</h3><p>Accès anticipé à des fonctionnalités validées, crédits d’essai, créneaux prioritaires et ateliers de co-conception, selon les capacités réellement mesurées.</p></article><article class="v3-card"><h3>Private Founders</h3><p>Participation aux pilotes, priorité envisagée pour les premiers déploiements dédiés et conditions préférentielles d’installation et de licence à définir.</p></article></div><p><strong>Souhaitez-vous être informé si une campagne de financement participatif est lancée ?</strong></p><p><a class="v3-cta" href="questionnaire.html#crowdfunding-interest">Être informé du lancement éventuel</a></p><p class="v4-note">Inscription volontaire, sans engagement ni paiement. Aucun financement n’est collecté actuellement ; plateforme, budget, calendrier et contreparties restent à définir. Ce programme n’est pas une offre de titres financiers. La démonstration historique ci-dessous est une simulation locale, pas une IA opérationnelle.</p></div></section><section class="section card" id="demo">
+<h2>Démonstration locale</h2>
+<p class="muted">Cette démonstration historique V1.1 ne transmet pas le texte saisi et n’appelle aucun service IA. Le score n’est pas une mesure de probabilité ni un outil de décision de recrutement. Le texte reste dans votre navigateur : un petit moteur local repère quelques familles de mots-clés pour produire une simulation plus cohérente qu’un résultat figé.</p>
+<div class="demo-box">
+<label for="offer"><strong>Collez une offre ici</strong></label>
+<textarea id="offer" placeholder="Exemples : chargé d’insertion professionnelle, recruteur IT, consultant talent acquisition, commercial, marchand de légumes..."></textarea>
+<div class="cta" style="justify-content:flex-start">
+<button class="btn" id="showDemo" type="button">Analyser localement</button>
+<button class="btn ghost" id="sampleGood" type="button">Exemple pertinent</button>
+<button class="btn ghost" id="sampleLow" type="button">Exemple hors cible</button>
+<button class="btn ghost" id="clearDemo" type="button">Réinitialiser</button>
+</div>
+<div aria-live="polite" class="result" id="result">
+<div class="grid-2">
+<article class="card">
+<h3>Simulation par mots-clés (non validée)</h3>
+<p><strong>Score illustratif :</strong> <span id="matchLabel">—</span></p>
+<div class="barline"><i id="matchBar" style="width:0%"></i></div>
+<ul>
+<li><strong>Preuves fortes :</strong> <span id="strongEvidence">—</span></li>
+<li><strong>Preuves transférables :</strong> <span id="transferEvidence">—</span></li>
+<li><strong>Zones à clarifier :</strong> <span id="gapsEvidence">—</span></li>
+</ul>
+</article>
+<article class="card">
+<h3>Extrait de CV ciblé simulé</h3>
+<p><strong>Titre proposé :</strong> <span id="cvTitle">—</span></p>
+<p><strong>Synthèse ciblée :</strong> <span id="cvSummary">—</span></p>
+<p class="small" id="demoNote">Simulation locale sans IA. La future V2 générera ce bloc depuis un backend sécurisé, à partir de l’offre fournie et d’une base de faits vérifiée.</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+<section class="section card" id="cv">
+<h2>CV socle lisible immédiatement</h2>
+<p class="muted">Même sans utiliser le module de matching, le lecteur peut consulter les éléments clés du parcours.</p>
+<div aria-label="Angles de lecture" class="pillbar" role="tablist">
+<button class="pill active" data-filter="all" type="button">Tout</button>
+<button class="pill" data-filter="recrutement" type="button">Recrutement IT</button>
+<button class="pill" data-filter="accompagnement" type="button">Accompagnement</button>
+<button class="pill" data-filter="pedagogie" type="button">Pédagogie</button>
+<button class="pill" data-filter="digital" type="button">Digital &amp; IA</button>
+<button class="pill" data-filter="international" type="button">International</button>
+</div>
+<div class="timeline" id="timeline">
+<details data-tags="recrutement accompagnement digital international" open="">
+<summary>Anywr — Consultant en Recrutement IT Global <span class="muted">2022–2025</span></summary>
+<div class="detail-content">
+<p>Sourcing stratégique et recrutement de profils IT spécialisés en contexte international : Java, Python, Angular, React, Salesforce, COBOL. Accompagnement candidats, préparation aux entretiens, reporting et adaptation aux enjeux de mobilité internationale.</p>
+<div class="tags"><span class="tag blue">Recrutement IT</span><span class="tag blue">Accompagnement</span><span class="tag blue">International</span><span class="tag blue">Digital</span></div>
+</div>
+</details>
+<details data-tags="recrutement accompagnement digital">
+<summary>HIRE SAS — Chargé de recrutement <span class="muted">2019–2022</span></summary>
+<div class="detail-content">
+<p>Recrutement de profils IT cadres et managers, rédaction d’annonces, sourcing multicanal, LinkedIn Recruiter, entretiens structurés, évaluation technique et comportementale, suivi managers.</p>
+<div class="tags"><span class="tag blue">Recrutement IT</span><span class="tag blue">Entretiens structurés</span><span class="tag blue">Relation décideurs</span></div>
+</div>
+</details>
+<details data-tags="recrutement accompagnement">
+<summary>ABIL Ressources — Chargé de recrutement <span class="muted">2018–2019</span></summary>
+<div class="detail-content">
+<p>Recrutement multisectoriel, relation client, diffusion d’offres, conduite d’entretiens et feedback candidat.</p>
+</div>
+</details>
+<details data-tags="recrutement accompagnement digital">
+<summary>Solutions30 — Chargé de recrutement <span class="muted">2017</span></summary>
+<div class="detail-content">
+<p>Sourcing, préqualification, entretiens et coaching candidats pour des profils support et techniques.</p>
+</div>
+</details>
+<details data-tags="recrutement digital">
+<summary>Synergie — Assistant chargé de recrutement <span class="muted">2016–2017</span></summary>
+<div class="detail-content">
+<p>Support opérationnel au recrutement, préqualification téléphonique, gestion de base candidats et organisation des entretiens.</p>
+</div>
+</details>
+<details data-tags="accompagnement pedagogie">
+<summary>Gestionnaire talents — Indépendant <span class="muted">2012–2016</span></summary>
+<div class="detail-content">
+<p>Accompagnement global d’un jeune artiste : développement de carrière, image, stratégie artistique, prospection et coordination d’un projet studio.</p>
+</div>
+</details>
+<details data-tags="accompagnement pedagogie">
+<summary>OGEC Jeanne d’Arc — Auxiliaire scolaire <span class="muted">2010–2012</span></summary>
+<div class="detail-content">
+<p>Accompagnement pédagogique d’un élève dyslexique, adaptation, médiation en classe et suivi de réorientation.</p>
+</div>
+</details>
+<details data-tags="international accompagnement">
+<summary>Australie — Pause professionnelle / WHV <span class="muted">2007–2009</span></summary>
+<div class="detail-content">
+<p>Expériences professionnelles variées en environnement anglophone : vente, travaux saisonniers, usine, pêche en mer. Renforcement de l’adaptabilité, de l’anglais et de la résilience.</p>
+</div>
+</details>
+<details data-tags="pedagogie recrutement digital accompagnement">
+<summary>Alternance Sèvre et Vienne — Conseiller en formation <span class="muted">2005–2007</span></summary>
+<div class="detail-content">
+<p>Prospection, vente de solutions de formation en alternance, conduite d’entretiens individuels et collectifs, participation salons, création d’une base candidats Excel et publipostage SMS.</p>
+</div>
+</details>
+<details data-tags="accompagnement">
+<summary>ART’RENOV — Commercial <span class="muted">2004–2005</span></summary>
+<div class="detail-content">
+<p>Prospection, vente terrain, négociation, relation client et développement commercial.</p>
+</div>
+</details>
+</div>
+</section>
+<section class="section grid">
+<article class="card">
+<h2>Compétences clés</h2>
+<div class="tags">
+<span class="tag">Sourcing</span><span class="tag">Recherche booléenne</span><span class="tag">Entretiens structurés</span><span class="tag">Coaching candidats</span><span class="tag">Reporting</span><span class="tag">Relation parties prenantes</span><span class="tag">Anglais professionnel</span><span class="tag">Bullhorn</span><span class="tag">JIRA</span><span class="tag">CodingGame</span><span class="tag">AssessFirst</span><span class="tag">Power BI</span>
+</div>
+</article>
+<article class="card">
+<h2>Règle anti-surpromesse</h2>
+<p>TalentBusterZ ne doit pas produire un CV fictif. Le système peut reformuler, sélectionner et prioriser, mais il doit signaler les écarts lorsqu’une preuve est absente ou seulement transférable.</p>
+</article>
+<article class="card">
+<h2>Prochaine étape</h2>
+<p>Construire la V2 avec un backend local sécurisé, une base de faits CV en JSON, puis un appel IA contrôlé par les règles TBZ_MATCH_ENGINE et TBZ_CV_ENGINE.</p>
+</article>
+</section>
+</main>
+<footer>© 2026 Grégory Sauteret — TalentBusterZ est un prototype personnel en cours de développement.</footer>
 <script>
   const offer = document.getElementById('offer');
   const result = document.getElementById('result');
