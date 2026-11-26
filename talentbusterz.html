@@ -55,16 +55,13 @@
   ul{margin:8px 0;padding-left:20px}li{margin:6px 0}.timeline{position:relative}.xp{border-left:4px solid var(--accent);padding-left:16px;margin:14px 0}.xp small{color:var(--muted);font-weight:700}.xp strong{display:block;font-size:17px}.note{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:14px 16px;color:var(--muted)}
   .demo-box{border:1px dashed rgba(30,58,138,.35);background:linear-gradient(180deg,rgba(30,58,138,.05),transparent);border-radius:18px;padding:18px}textarea{width:100%;min-height:140px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);padding:12px 14px;font:inherit;resize:vertical}.result{display:none;margin-top:14px}.result.show{display:block}.small{font-size:13px;color:var(--muted)}
   footer{text-align:center;color:var(--muted);padding:26px 20px}
+
+@media(max-width:400px){.score{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.card{min-width:0}.pillbar{gap:6px}main{padding:14px 12px}}
 </style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="talentbusterz.html" aria-current="page">TalentBusterZ: CV augmenté</a>
-    <a href="references.html">Références</a>
-    <a href="contact.html">Contact</a>
-    <a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn</a>
-  </nav>
+  <nav class="site-nav" aria-label="Navigation principale"><a class="identity" href="index.html">GS<span>.</span> <span class="identity-name">Grégory Sauteret</span></a><div class="nav-links"><a href="index.html">Accueil</a><a href="references.html">Références</a><a href="talentbusterz.html" aria-current="page">Innovation</a><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn ↗</a></div></nav>
 
   <header>
     <div class="badge">Prototype personnel · CV augmenté · matching offre/parcours</div>
@@ -103,7 +100,7 @@
           <div class="donut"><span>V1</span></div>
           <div>
             <strong>Phase 1 : vitrine statique</strong>
-            <p class="muted">Cette page ne transmet aucune donnée et n’appelle aucun service IA. Elle présente le concept, une simulation de résultat et les garde-fous avant toute mise en ligne d’un module connecté. Le domaine talentbusterz.com est réservé pour préparer, à terme, une version autonome du projet.</p>
+            <p class="muted">Cette démonstration ne transmet pas le texte saisi et n’appelle aucun service IA. Elle présente le concept, une simulation de résultat et les garde-fous avant toute mise en ligne d’un module connecté. Le domaine talentbusterz.com est réservé pour préparer, à terme, une version autonome du projet.</p>
           </div>
         </div>
         <div class="note">Le futur module IA devra être appelé uniquement depuis un backend sécurisé. Aucune clé API ne sera exposée dans le HTML, et les textes transmis devront être limités, filtrés et traités comme des données non fiables.</div>
@@ -112,7 +109,7 @@
 
     <section class="section card" id="demo">
       <h2>Démonstration locale</h2>
-      <p class="muted">Cette V1.1 ne transmet toujours aucune donnée et n’appelle aucun service IA. Le texte reste dans votre navigateur : un petit moteur local repère quelques familles de mots-clés pour produire une simulation plus cohérente qu’un résultat figé.</p>
+      <p class="muted">Cette démonstration historique V1.1 ne transmet pas le texte saisi et n’appelle aucun service IA. Le score n’est pas une mesure de probabilité ni un outil de décision de recrutement. Le texte reste dans votre navigateur : un petit moteur local repère quelques familles de mots-clés pour produire une simulation plus cohérente qu’un résultat figé.</p>
       <div class="demo-box">
         <label for="offer"><strong>Collez une offre ici</strong></label>
         <textarea id="offer" placeholder="Exemples : chargé d’insertion professionnelle, recruteur IT, consultant talent acquisition, commercial, marchand de légumes..."></textarea>
@@ -125,8 +122,8 @@
         <div class="result" id="result" aria-live="polite">
           <div class="grid-2">
             <article class="card">
-              <h3>Diagnostic de match indicatif</h3>
-              <p><strong>Match estimé :</strong> <span id="matchLabel">—</span></p>
+              <h3>Simulation par mots-clés (non validée)</h3>
+              <p><strong>Score illustratif :</strong> <span id="matchLabel">—</span></p>
               <div class="barline"><i id="matchBar" style="width:0%"></i></div>
               <ul>
                 <li><strong>Preuves fortes :</strong> <span id="strongEvidence">—</span></li>

@@ -91,17 +91,14 @@
     .slide{transition:none}
     .bar{transition:none!important}
   }
+
+.stage{display:block;min-height:0;overflow:visible}.slide{position:relative;display:none;opacity:1;transform:none;pointer-events:auto}.slide.active{display:grid;min-height:320px} @media(max-width:760px){.slide.active{min-height:0}.quote{font-size:20px}}
 </style>
+<link rel="stylesheet" href="site.css">
 </head>
 
 <body>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="talentbusterz.html">TalentBusterZ: CV augmenté</a>
-    <a href="references.html" aria-current="page">Références</a>
-    <a href="contact.html">Contact</a>
-    <a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn</a>
-  </nav>
+  <nav class="site-nav" aria-label="Navigation principale"><a class="identity" href="index.html">GS<span>.</span> <span class="identity-name">Grégory Sauteret</span></a><div class="nav-links"><a href="index.html">Accueil</a><a href="references.html" aria-current="page">Références</a><a href="talentbusterz.html">Innovation</a><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn ↗</a></div></nav>
 
   <header>
     <h1>Références professionnelles</h1>
@@ -112,7 +109,7 @@
     <section class="intro">
       <h2>Une lecture prudente et respectueuse</h2>
       <p>Les recommandations ci-dessous proviennent de retours publiés sur LinkedIn. Par souci de sobriété et de respect des données personnelles, les identités sont abrégées et certains éléments ont été légèrement condensés, sans modifier le sens des messages.</p>
-      <p>Le diaporama adapte automatiquement le temps d’affichage à la longueur du texte. Il peut être parcouru au clavier, à la souris ou au swipe sur mobile.</p>
+      <p>Le diaporama démarre en pause. En mode lecture, il adapte le temps d’affichage à la longueur du texte. Il peut être parcouru au clavier, à la souris ou au swipe sur mobile.</p>
     </section>
 
     <div class="filters" aria-label="Filtrer les références par thème">
@@ -176,7 +173,7 @@
       <div class="controls">
         <button class="btn ghost" id="prev" type="button">← Précédent</button>
         <div class="dots" id="dots" aria-label="Navigation du diaporama"></div>
-        <button class="btn" id="toggle" type="button">Pause</button>
+        <button class="btn" id="toggle" type="button">Lecture</button>
         <button class="btn ghost" id="next" type="button">Suivant →</button>
       </div>
     </section>
@@ -204,7 +201,7 @@
     let activeSlides = [...allSlides];
     let index = 0;
     let timer = null;
-    let paused = false;
+    let paused = true;
     let touchStartX = 0, touchStartY = 0, touchMoved = false;
 
     function readingTime(slide){
@@ -232,7 +229,7 @@
       activeSlides[index].classList.add('active');
       counter.textContent = `Référence ${index + 1} / ${activeSlides.length}`;
       updateDots();
-      stage.focus({preventScroll:true});
+
     }
 
     function animateBar(ms){
@@ -284,7 +281,7 @@
       }
     }, {passive:true});
 
-    document.addEventListener('keydown', e=>{
+    stage.addEventListener('keydown', e=>{
       if(e.key === 'ArrowRight'){ e.preventDefault(); next(); }
       if(e.key === 'ArrowLeft'){ e.preventDefault(); prev(); }
       if(e.code === 'Space' || e.key === ' '){ e.preventDefault(); togglePause(); }

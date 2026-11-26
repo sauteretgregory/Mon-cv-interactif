@@ -61,30 +61,27 @@
 
   footer{text-align:center;color:var(--muted);padding:24px}
 </style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="talentbusterz.html">TalentBusterZ: CV augmenté</a>
-    <a href="references.html">Références</a>
-    <a href="contact.html" aria-current="page">Contact</a>
-    <a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn</a>
-  </nav>
+  <nav class="site-nav" aria-label="Navigation principale"><a class="identity" href="index.html">GS<span>.</span> <span class="identity-name">Grégory Sauteret</span></a><div class="nav-links"><a href="index.html">Accueil</a><a href="references.html">Références</a><a href="talentbusterz.html">Innovation</a><a href="contact.html" aria-current="page">Contact</a><a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn ↗</a></div></nav>
 
   <header>
     <h1>Contact</h1>
-    <p>Discutons recrutement, accompagnement professionnel ou TalentBusterZ.</p>
+    <p>Échangeons sur vos besoins de recrutement et vos projets pour 2027.</p>
   </header>
 
   <main>
     <div class="card">
-      <form id="contactForm" action="https://formspree.io/f/xpwyjjzn" method="POST" novalidate>
+      <form id="contactForm" action="https://formspree.io/f/xpwyjjzn" method="POST">
         <label for="name">Votre nom</label>
-        <input id="name" name="name" type="text" placeholder="Votre nom" required />
+        <input id="name" name="name" autocomplete="name" type="text" placeholder="Votre nom" required />
 
         <label for="email">Votre email</label>
-        <input id="email" name="_replyto" type="email" placeholder="prenom.nom@email.com" required />
+        <input id="email" name="email" autocomplete="email" type="email" placeholder="prenom.nom@email.com" required />
 
+        <label for="company">Entreprise (facultatif)</label>
+        <input id="company" name="company" type="text" autocomplete="organization" />
         <label for="subject">Sujet</label>
         <input id="subject" name="subject" type="text" placeholder="Sujet du message" required />
 
@@ -99,14 +96,14 @@
           
         </div>
 
-        <p class="hint">Vos données ne sont pas stockées sur ce site.</p>
-        <div id="ok" class="alert ok" style="display:none">Merci ! Votre message a bien été envoyé.</div>
-        <div id="ko" class="alert err" style="display:none">Oups, l’envoi a échoué. Réessayez plus tard ou via LinkedIn.</div>
+        <p class="hint">Les informations saisies sont transmises au prestataire Formspree pour permettre le traitement de votre demande. N’envoyez pas de CV ni de données sensibles via ce formulaire. Vous pouvez également me contacter sur LinkedIn. <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Politique de confidentialité de Formspree</a>.</p>
+        <div id="ok" role="status" class="alert ok" style="display:none">Merci ! Votre message a bien été envoyé.</div>
+        <div id="ko" role="alert" class="alert err" style="display:none">Oups, l’envoi a échoué. Réessayez plus tard ou via LinkedIn.</div>
       </form>
     </div>
   </main>
 
-  <footer>© 2025 Grégory Sauteret</footer>
+  <footer>© 2026 Grégory Sauteret</footer>
 
   <script>
     // Envoi AJAX Formspree + états propres
@@ -126,6 +123,7 @@
         if(r.ok){
           ok.style.display='block';
           form.reset();
+          try { sessionStorage.setItem('gsContactSent','1'); location.assign('merci.html'); } catch (_) { /* confirmation inline */ }
         }else{
           ko.style.display='block';
         }

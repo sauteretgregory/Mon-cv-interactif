@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex">
   <title>Merci — Grégory Sauteret</title>
 
   <meta name="color-scheme" content="light dark">
@@ -105,22 +106,17 @@
       .merci{animation:none}
     }
   </style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="talentbusterz.html">TalentBusterZ: CV augmenté</a>
-    <a href="references.html">Références</a>
-    <a href="contact.html" aria-current="page">Contact</a>
-    <a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn</a>
-  </nav>
+  <nav class="site-nav" aria-label="Navigation principale"><a class="identity" href="index.html">GS<span>.</span> <span class="identity-name">Grégory Sauteret</span></a><div class="nav-links"><a href="index.html">Accueil</a><a href="references.html">Références</a><a href="talentbusterz.html">Innovation</a><a href="contact.html" aria-current="page">Contact</a><a href="https://www.linkedin.com/in/gsauteret/" target="_blank" rel="noopener">LinkedIn ↗</a></div></nav>
 
   <section class="hero">
     <canvas id="confetti" aria-hidden="true"></canvas>
 
     <div class="center">
       <h1 class="merci">MERCI<span id="who"></span> !</h1>
-      <p class="subtitle">Votre message a bien été envoyé — je reviens rapidement vers vous.</p>
+      <p class="subtitle">Merci de votre intérêt. Au plaisir d’échanger avec vous.</p>
       <div class="cta">
         <a class="btn" href="index.html">Retour à l’accueil</a>
         <a class="btn ghost" href="talentbusterz.html">Voir TalentBusterZ: CV augmenté</a>
@@ -132,11 +128,7 @@
   <footer>© <script>document.write(new Date().getFullYear())</script> Grégory Sauteret</footer>
 
   <script>
-    // Personnalisation prénom
-    const p = new URLSearchParams(location.search);
-    const n = decodeURIComponent(p.get('name')||'').trim();
-    if(n){ document.getElementById('who').textContent = ', ' + n.split(' ')[0]; }
-
+    try { if(sessionStorage.getItem('gsContactSent')==='1'){ document.querySelector('.subtitle').textContent='Votre message a bien été envoyé. Merci pour votre prise de contact.'; sessionStorage.removeItem('gsContactSent'); } } catch (_) {}
     // Confettis doux
     (function(){
       const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
